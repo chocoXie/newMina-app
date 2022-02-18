@@ -1,0 +1,200 @@
+page {
+  background: #fff;
+}
+.container {
+  background: transparent;
+}
+.container .top {
+  width: 95%;
+  display: flex;
+  align-items: flex-end;
+  margin-bottom: 40rpx;
+  padding-left: 37rpx;
+  justify-content: center;
+  position: relative;
+}
+.container .top text {
+  width: 100%;
+  text-align: center;
+  font-size: 32rpx;
+  font-family: PingFangSC-Medium, PingFang SC;
+  font-weight: 500;
+  color: #000000;
+}
+.imageOther{
+  width: 34rpx !important;
+  height: 36rpx !important;
+}
+.container .top .cancelBackBox{
+  position: absolute;
+  display: flex;
+  align-items: center;
+  padding-left: 32rpx;
+  width: 70rpx;
+  height: 50%;
+  bottom: 0;
+  left: 0;
+  text-align: left;
+}
+.container .top image {
+  position: absolute;
+  display: inline-block;
+  width: 30rpx;
+  height: 26rpx;
+}
+.login-box {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  text-align: center;
+}
+.banner {
+  width: 750rpx;
+  height: 425rpx;
+  margin: 0 auto;
+}
+.loginCoupon{
+  position: relative;
+  top: -50px;
+  width: 738rpx;
+  height: 340rpx;
+}
+.loginCoupon image{
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.wx-login-btn {
+  margin: 0 auto 52rpx;
+  width: 658rpx;
+  height: 96rpx;
+  line-height: 96rpx;
+  font-size: 32rpx;
+  border-radius: 12rpx;
+  color: #fff;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  letter-spacing: 3rpx;
+  background: #55BF4D ;
+  box-shadow: 0px 20rpx 34rpx 0px rgba(85, 191, 77, 0.5);
+}
+
+.account-login-btn {
+  text-align: center;
+  font-size: 28rpx;
+  color: #999999;
+  background: transparent;
+}
+.wxlogo {
+  width: 46rpx;
+  height: 42rpx;
+  margin-right: 26rpx;
+}
+.login-footer {
+  position: relative;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+}
+.login-footer-m {
+  position: fixed;
+  bottom: 96rpx;
+  font-size: 24rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: #ABABAB;
+  margin: 0 auto;
+}
+.login-footer-m b {
+  color: #222;
+  font-weight: 600;
+}
+.loginStayContent{
+  position: relative;
+  width: 670rpx;
+  height: 864rpx;
+}
+.loginStayContent .loginStayMain{
+  box-sizing: border-box;
+  padding-top: 60rpx;
+  width: 100%;
+  height:728rpx;
+  background: #fff;
+  border-radius: 32rpx;
+}
+.loginStayMain .title{
+  width: 100%;
+  margin-bottom:40rpx;
+  text-align: center;
+  font-size: 40rpx;
+  font-weight: 600;
+  color: #282828;
+}
+.loginStayMain .title b{
+  color: #FF9000;
+}
+.loginStayMain image.loginStayTip{
+  display: block;
+  width: 280rpx;
+  height: 284rpx;
+  margin: 0 auto;
+  box-shadow: 0px 6px 15px #ffedce;
+  border-radius: 50%;
+}
+.loginStayMain .StayPropLogin{
+  margin: 30rpx auto 40rpx;
+  width: 470rpx;
+  height: 96rpx;
+  line-height: 96rpx;
+  font-size: 32rpx;
+  border-radius: 50rpx;
+  color: #fff;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: flex;
+  bottom: 0;
+  left: 0;
+  padding: 0;
+  text-align: center;
+  /* padding-left: -5rpx; */
+  letter-spacing: 3rpx;
+  background: #5BC051;
+}
+.loginStayMain .stayGiveUpLogin{
+  font-size: 28rpx;
+  color: #999999;
+  text-align: center;
+}
+.loginStayContent image.closeLoginStayPop{
+  display: block;
+  width: 76rpx;
+  height: 76rpx;
+  margin: 60rpx auto 0;
+}
+.loginBgTip1,
+.loginBgTip2{
+    
+    width: 180rpx;
+    height: 180rpx;
+    background: linear-gradient(90deg, #FFF3C9 0%, #FFC639 100%);
+    box-shadow: 0px 12rpx 30rpx 0px rgba(255, 197, 74, 0.6);
+    opacity: 0.15;
+    filter: blur(1px);
+    border-radius: 50%;
+    right: -90rpx;
+}
+.loginBgTip1{
+  position: absolute;
+  right: -90rpx;
+  bottom: 14rpx;
+}
+.loginBgTip2{
+  position: fixed;
+  left: -90rpx;
+  bottom: 96rpx;
+}

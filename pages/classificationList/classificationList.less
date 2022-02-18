@@ -1,0 +1,238 @@
+.classificationListContainer {
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    overflow-y: auto;
+    position: static;
+    .classificationLabelBar {
+        white-space: nowrap;
+        align-items: center;
+        width: 100%;
+        padding: 0 32rpx;
+        position: fixed;
+        z-index: 999;
+        font-weight: 520;
+        background-color: #fff;
+        padding-bottom: 10rpx;
+        height: 88rpx;
+        line-height: 88rpx;
+        .classificationLabel {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            li {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                
+                >text {
+                    font-size: 28rpx;
+                    font-family: PingFangSC-Regular, PingFang SC;
+                    font-weight: 400;
+                    color: #747474;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
+                }
+
+                >text:nth-child(1) {
+                    max-width: 196rpx;
+                }
+
+                .otherColor {
+                    font-weight: 500;
+                    color: #F42828;
+
+                }
+
+                >image {
+                    display: inline-block;
+                    margin-left: 12rpx;
+                    width: 20rpx;
+                    height: 24rpx;
+                }
+            }
+        }
+
+
+    }
+
+    .allTags {
+        background-color: #fff;
+        border-bottom-left-radius: 32rpx;
+        border-bottom-right-radius: 32rpx;
+
+        .allTagsModular {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            justify-content: center;
+            padding: 6rpx 32rpx 0 32rpx;
+
+            >view:nth-child(1) {
+                margin-bottom: 42rpx;
+
+                >view {
+                    display: inline-block;
+                    margin-right: 22rpx;
+                    font-size: 28rpx;
+                    font-family: PingFangSC-Regular, PingFang SC;
+                    font-weight: 400;
+                    color: #747474;
+                    padding: 10rpx 39rpx 10rpx 29rpx;
+                    background: #F5F5F5;
+                    border-radius: 30rpx;
+                    margin-bottom: 38rpx;
+                }
+
+                .activeColor {
+                    background: rgba(244, 40, 40, 0.06);
+                    color: #F42828;
+                }
+            }
+
+            >view:nth-child(2) {
+                display: flex;
+                width: 100%;
+                align-items: center;
+                padding-bottom: 68rpx;
+
+                view {
+                    font-size: 28rpx;
+                    font-family: PingFangSC-Regular, PingFang SC;
+                    font-weight: 400;
+                    border-radius: 37px;
+                    display: inline-block;
+                }
+
+                view:nth-child(1) {
+                    color: #747474;
+                    padding: 16rpx 84rpx;
+                    background: #F7F7F7;
+                    margin-right: 20rpx;
+                }
+
+                view:nth-child(2) {
+                    color: #fff;
+                    padding: 16rpx 193rpx;
+                    background: #F42828;
+                }
+            }
+
+            .lastModular {
+                width: 100%;
+                align-items: center;
+                flex-direction: column;
+                justify-content: center;
+
+                >view {
+                    width: 100%;
+                    background-color: #fff !important;
+                    text-align: center;
+                }
+            }
+        }
+    }
+
+    .classificationList {
+        background-color: #fff;
+        padding: 0 32rpx;
+        .notData {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 100rpx;
+            >view{
+                font-size: 24rpx;
+                font-family: PingFangSC-Regular, PingFang SC;
+                font-weight: 400;
+                color: #B2B2B2;
+            }
+            >image {
+                display: inline-block;
+                width: 330rpx;
+                height: 287rpx;
+                margin-bottom: 36rpx;
+            }
+        }
+       
+        .lists-line{
+            width: 100%;
+            height: 1rpx;
+            background: #EFEFEF;
+            margin-top: 30rpx;
+            margin-bottom: 31rpx;
+        }
+    }
+    .dividingLine {
+        width: 100%;
+        height: 20rpx;
+        background-color: #fafafa;
+        margin: 0 0 30rpx 0;
+    }
+    .guessLike {
+        display: flex;
+        align-items: flex-start;
+        justify-content: flex-start;
+        flex-direction: column;
+        width: 100%;
+        padding-left: 32rpx;
+       
+        .title {
+            font-size: 36rpx;
+            font-family: PingFangSC-Semibold, PingFang SC;
+            font-weight: 700;
+            color: #282828;
+            margin-bottom: 44rpx;
+        }
+
+        .guessLikeItem {
+            position: relative;
+            margin-bottom: 60rpx;
+
+            .itemLine {
+                position: absolute;
+                width: 100%;
+                height: 1rpx;
+                bottom: -30rpx;
+                background-color: #EFEFEF;
+            }
+        }
+
+        .guessLikeItem:last-child {
+            margin-bottom: 30rpx;
+        }
+        .notMoreData {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #747474;
+            width: 100%;
+            margin-top: -20rpx;
+        }
+    }
+    .customerService{
+        width: 116rpx;
+        height: 124rpx;
+        position:fixed;
+        bottom: 100rpx;
+        right: 6rpx;
+         image:nth-child(1){
+          width: 100%;
+          height: 100%;
+        }
+         image:nth-child(2){
+          width: 24rpx;
+          height: 24rpx;
+          position: absolute;
+          top: 8rpx;
+          right: 8rpx;
+        }
+      }
+      .customerServiceActive{
+        right: -58rpx !important;
+      }
+}

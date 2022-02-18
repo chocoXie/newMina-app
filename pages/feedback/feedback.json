@@ -1,0 +1,10 @@
+{
+  "component": true,
+  "navigationStyle":"custom", 
+  "usingComponents": {
+    "public-title": "../../components/publicTitle/publicTitle",
+    "van-divider": "../../lib/vant-weapp/divider/index",
+    "van-action-sheet": "../../lib/vant-weapp/action-sheet/index"
+    
+  }
+}

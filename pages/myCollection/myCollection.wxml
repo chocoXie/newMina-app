@@ -1,0 +1,26 @@
+<!-- pages/myCollection/myCollection.wxml -->
+<view class="containerMyCollection">
+  <!-- 顶部导航 -->
+   <view style="position:sticky; top: 0;z-index: 10;">
+     <public-title titleName="我的收藏"></public-title>
+   </view>
+  <view class="notData" wx:if="{{emptyData==2}}">
+    <public-notdataList titleName="收藏"></public-notdataList>
+  </view>
+  <view class="dataList" wx:else>
+    <view class="guessLikeItem" wx:for="{{dataList}}" wx:key="*this">
+      <view  wx:if="{{item.informationInfo}}">
+        <news-information wx:if="{{item.informationInfo}}" itemData="{{item}}"></news-information>
+        <view class="itemLine" wx:if = '{{dataList[index+1].informationInfo}}'></view>
+      </view>
+      <view  wx:if="{{item.vod}}">
+        <news-video wx:if="{{item.vod}}" itemData="{{item}}"></news-video>
+      </view>
+    </view>
+
+  </view>
+  <view style="text-align: center;margin:20rpx  0 20rpx 0;width:100%">
+    <view wx:if="{{loading}}">加载中...</view>
+    <view wx:if="{{noMore}}">已全部加载完毕</view>
+  </view>
+</view>

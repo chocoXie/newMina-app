@@ -1,0 +1,33 @@
+<view class="selectBrand">
+    <!-- 顶部导航 -->
+    <view style="position:sticky; top: 0;z-index: 10;">
+        <public-title titleName="选择品牌" type="selectBrand"></public-title>
+    </view>
+    <view class="selectBrandList">
+        <view class="selectBrandItem" wx:for="{{dataList}}" wx:key="*this" bindtap="selectthisBrand" data-branditem="{{item}}">
+            <image class="icon_checkedBrand" wx:if="{{brandIsCheckId == item.brandId }}" src="https://huiju-new-prod.oss-cn-beijing.aliyuncs.com/weChat_images/myInfo/icon_checked.png"/>
+            <image class="icon_checkedBrand" wx:else src="https://huiju-new-prod.oss-cn-beijing.aliyuncs.com/weChat_images/myInfo/icon_nochecked.png" />
+            <image class="brandImgLogo" src="{{item.listPicUrl}}" />
+            <view class="brandComponentsBarRight">
+                <view>
+                    {{item.brandName}}
+                    <view wx:if="{{item.category == '饮品甜品' || item.category == '中西快餐' || item.category == '特色小吃'}}">
+                        <view class="rankingTag" wx:if="{{item.ranking && item.brandName.length<11}}">
+                            <image wx:if="{{item.category == '饮品甜品'}}" src="../../static/images/list_cyTag.png"></image>
+                            <image wx:if="{{item.category == '中西快餐'}}" src="../../static/images/list_kcTag.png"></image>
+                            <image wx:if="{{item.category == '特色小吃'}}" src="../../static/images/list_xcTag.png"></image>
+                            <text wx:if="{{item.ranking > 9}}" style="left:68rpx;">TOP{{item.ranking}}</text>
+                            <text wx:else>TOP{{item.ranking}}</text>
+                        </view>
+                    </view>
+                </view>
+                <view>主营产品：{{item.mainProducts}}</view>
+                <view>投资金额： <b>{{item.joinInvestMin}}-{{item.joinInvestMax}}万</b></view> 
+            </view>
+        </view>
+    </view>
+</view>
+<view style="text-align: center;margin:40rpx  0 20rpx 0;font-weight:500">
+    <view wx:if="{{loading}}">加载中...</view>
+    <view wx:if="{{noMore}}">我是有底线的～</view>
+</view>

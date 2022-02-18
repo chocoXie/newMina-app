@@ -1,0 +1,42 @@
+<view class="iphoneLoginBar">
+    <text>手机号登录</text>
+    <view class="iphoneLogin">
+        <van-field class="firstOne"
+            value="{{ iphone }}" 
+            placeholder-style="color:#ccc;font-size:32rpx" 
+            placeholder="请输入手机号" 
+            border="{{ true }}" 
+            use-button-slot 
+            bind:change="onChange"
+            type="number"
+            maxlength="11"
+         >
+            <view slot="button" class="leftTxt">
+                <text >+86</text>
+              
+            </view>
+        </van-field>
+        <van-field 
+            value="{{ sms }}" 
+            placeholder-style="color:#ccc;font-size:32rpx"	 
+            center 
+            label="" 
+            placeholder="输入验证码" 
+            border="{{ true }}" 
+            use-button-slot
+            type="number"
+            maxlength="6"
+            bind:change="onChangeSms"
+
+        >
+            <text wx:if="{{isSendSms}}" slot="button" class="txt" bindtap="smsSend">发送验证码</text>
+            <text wx:else slot="button" class="txt txtColor" >重新获取（{{countNumber}}）</text>
+        </van-field>
+    </view>
+    <view class="submitLogin" bindtap="submitLogin">立即登录</view>
+    <view class="footer-m">
+       <view class="footer">登录即代表同意【餐盟严选】<b data-id="1" bindtap='goPage'>用户协议、</b ><b data-id="2"  bindtap='goPage' class="active_info">隐私政策</b></view>
+    </view>
+   
+     <van-toast id="van-toast" />
+</view>

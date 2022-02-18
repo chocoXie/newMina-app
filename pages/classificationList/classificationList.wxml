@@ -1,0 +1,112 @@
+<view class="classificationListContainer">
+  <view class="classificationLabelBarBar">
+    <title-search></title-search>
+    <!-- 分类标签 -->
+    <view class="classificationLabelBar" style="margin-top:{{heightTop}}px">
+      <ul class="classificationLabel">
+        <li wx:for="{{topTagList}}" wx:key="*this" bindtap="showPopup" data-item="{{item}}">
+          <text class="{{item.direction?'otherColor':''}}">{{item.name}}</text>
+          <image wx:if="{{!item.direction}}" src="../../static/images/classification/bottomIcon.png" />
+          <image wx:else src="../../static/images/classification/topIcon.png" />
+        </li>
+      </ul>
+    </view>
+    <!-- 搜索框 -->
+    <!-- 标签数据 -->
+    <van-popup show="{{ show }}" position="top" bind:close="onClose" bind:after-leave="onCloseAfter" round>
+      <view class="allTags" style="padding-top:{{heightTop+50}}px">
+        <view wx:if="{{topTagList[0].direction}}" class="allTagsModular">
+          <view>
+            <wxs module="m1">
+                        var getMax = function(array,type) {
+                            var newArray=array[0].select
+                            for(var i=0;i<newArray.length;i++){
+                                    if(newArray[i]==type){
+                                    return true
+                                    }
+                            }
+                            
+                        }
+                        module.exports.getMax = getMax;
+                    </wxs>
+            <view bindtap="cateringClick" data-type="classification" data-id="{{0}}" class="{{m1.getMax(topTagList,1)?'activeColor':''}}">
+              全部
+            </view>
+            <view bindtap="cateringClick" data-type="classification" wx:for="{{topTagList[0].cateringList}}" class="{{m1.getMax(topTagList,item.id)?'activeColor':''}}" wx:key="*this" data-id="{{item.id}}">
+              {{item.name}}
+            </view>
+          </view>
+          <view>
+            <view bindtap="cateringClick" data-type="classification" data-id="reset">重置</view>
+            <view bindtap="cateringClick" data-type="classification" data-id="confirm">确定</view>
+          </view>
+        </view>
+        <view wx:if="{{topTagList[1].direction}}" class="allTagsModular">
+          <wxs module="m2">
+                        var getMax = function(array,type) {
+                            var newArray=array[1].select
+                            if( newArray==type){
+                                return true
+                            }
+                            
+                        }
+                        module.exports.getMax = getMax;
+                    </wxs>
+          <view>
+            <view wx:for="{{topTagList[1].cateringList}}" wx:key="*this" bindtap="cateringClick" data-id='{{index}}' data-type="investmentRange" class="{{m2.getMax(topTagList,index)?'activeColor':''}}">
+              {{item.name}}
+            </view>
+          </view>
+        </view>
+        <view wx:if="{{topTagList[2].direction}}" class="allTagsModular">
+          <wxs module="m3">
+                        var getMax = function(array,type) {
+                            var newArray=array[2].select
+                            if( newArray==type){
+                                return true
+                            }
+                        }
+                        module.exports.getMax = getMax;
+                    </wxs>
+          <view class="lastModular">
+            <view wx:for="{{topTagList[2].cateringList}}" wx:key="*this" bindtap="cateringClick" data-id='{{index}}' data-type="sort" class="{{m3.getMax(topTagList,index)?'activeColor':''}}">
+              {{item.name}}
+            </view>
+          </view>
+        </view>
+      </view>
+    </van-popup>
+    <!-- 列表展示 -->
+    <view wx:if="{{typeIndex==1}}" class="classificationList" style="padding-top:{{heightTop+55}}px">
+      <view class="lists" wx:for="{{dataList}}" wx:key="*this">
+        <brand-components source="品牌列表-猜你喜欢" itemData="{{item}}"></brand-components>
+        <view wx:if="{{dataList[index+1]}}" class="lists-line"></view>
+      </view>
+      <view style="text-align: center;margin:40rpx  0 20rpx 0;font-weight:500">
+        <view wx:if="{{loading}}">加载中...</view>
+        <view wx:if="{{noMore}}">我是有底线的～</view>
+      </view>
+    </view>
+    <view wx:if="{{typeIndex==2}}" class="classificationList" style="padding-top:{{heightTop+55}}px">
+      <view class="notData">
+        <image src="http://huiju-new-prod.oss-cn-beijing.aliyuncs.com/weChat_images/myInfo/notData.png" />
+        <view class="">暂无数据</view>
+      </view>
+    </view>
+    <view class="dividingLine" wx:if="{{dataList.length<5}}"></view>
+    <view class="guessLike" wx:if="{{dataList.length<5}}">
+      <view class="title">猜你喜欢</view>
+      <view class="guessLikeItem" wx:for="{{guessYouList}}" wx:key="*this">
+        <brand-components source="品牌列表-猜你喜欢" itemData="{{item}}"></brand-components>
+        <view wx:if="{{dataList[index+1]}}" class="itemLine"></view>
+      </view>
+      <view class="notMoreData">我是有底线的～</view>
+    </view>
+  </view>
+  <view class="customerService {{scrollTop?'customerServiceActive':''}}" wx:if="{{isShowService}}">
+    <image wx:if="{{isShowOne}}" bindtap="openWeChat" src="http://huiju-new-prod.oss-cn-beijing.aliyuncs.com/weChat_images/customerService1.png" />
+    <image wx:else bindtap="openWeChat" src="http://huiju-new-prod.oss-cn-beijing.aliyuncs.com/weChat_images/customerService2.png" />
+    <image bindtap="closeService" src="../../static/images/removeServer.png" />
+    <button wx:if="{{!token}}" class="wx-auth-button" data-type="13品牌列表-加盟顾问" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNum"></button>
+  </view>
+</view>

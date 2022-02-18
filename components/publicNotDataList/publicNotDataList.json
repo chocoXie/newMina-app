@@ -1,0 +1,10 @@
+{
+  "component": true,
+  "usingComponents": {
+    "public-title": "../../components/publicTitle/publicTitle",
+    "brand-components": "../../components/brandComponents/brandComponents",
+    "public-notDataList": "../../components/publicNotDataList/publicNotDataList",
+    "news-information": "../../components/newsInformation/newsInformation"
+    
+  }
+}

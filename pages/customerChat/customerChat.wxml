@@ -1,0 +1,10 @@
+ <!-- <view>
+    <view style="position:sticky; top: 0;z-index: 10;">
+        <public-title titleName="餐盟严选"></public-title>
+    </view>
+    <web-view hidden="true" bindload="sucWeb" src="{{urls}}"></web-view>
+ </view> -->
+ <web-view hidden="true" bindload="sucWeb" src="{{urls}}"></web-view>
+
+
+

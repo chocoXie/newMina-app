@@ -1,0 +1,13 @@
+<view class="brandQAlist">
+    <!-- 顶部导航 -->
+    <view style="position:sticky; top: 0;z-index: 10;">
+        <public-title titleName="我要提问" ></public-title>
+    </view>
+    <view class="line"></view>
+    <view class="QAList">
+        <view bindtap="checkThisQA" wx:for="{{QAInfoList}}" wx:key="index" class="{{item.id == QAProupMsgId?'active':''}}" data-item="{{item}}">{{item.content}}</view>
+    </view>
+</view>
+
+
+

@@ -1,0 +1,13 @@
+<view class="swiperDetailsBar">
+    <view class="title">
+        <image bindtap="backPage" src="../../staticA/images/branDetail/brandBack.png" />
+        <text>品牌相册</text>
+    </view>
+    <view class="lastData">
+        <text>想了解该品牌更多信息？</text>
+        <view>
+            <text bindtap="onlineConsultation">在线咨询</text>
+            <text bindtap="makeCall">拨打电话</text>
+        </view>
+    </view>
+</view>

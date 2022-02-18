@@ -1,0 +1,175 @@
+.matchBrandBar {
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+}
+.matchBrandBar .title {
+  width: 100%;
+  padding-top: 131rpx;
+  padding-bottom: 30rpx;
+  height: 45rpx;
+  background-color: #fff;
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9;
+}
+.matchBrandBar .title > text {
+  font-size: 32rpx;
+  font-family: PingFangSC-Medium, PingFang SC;
+  font-weight: 500;
+  color: #000;
+  line-height: 45px;
+}
+.matchBrandBar .title > image {
+  position: absolute;
+  left: 37rpx;
+  width: 32rpx;
+  height: 32rpx;
+}
+.matchBrandBar > .titleImage {
+  width: 100%;
+  height: 314rpx;
+  position: absolute;
+  top: 181rpx;
+}
+.matchBrandBar .content {
+  position: absolute;
+  left: 32rpx;
+  width: 686rpx;
+  padding: 32rpx;
+  height: 570rpx;
+  margin-top: 232rpx;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 47rpx 28rpx 56rpx;
+  box-shadow: 0rpx 2rpx 18rpx 0rpx rgba(0, 0, 0, 0.05);
+  top: 155rpx;
+  border-radius: 16rpx;
+}
+.matchBrandBar .content .contentTxt {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 44rpx;
+}
+.matchBrandBar .content .contentTxt > text {
+  font-size: 28rpx;
+  font-family: PingFangSC-Medium, PingFang SC;
+  font-weight: 500;
+  color: #000000;
+  width: 238rpx;
+  display: inline-block;
+  text-align: right;
+}
+.matchBrandBar .content .contentTxt > view {
+  width: 394rpx;
+  height: 78rpx;
+  background: #FAFAFA;
+  border-radius: 16rpx;
+  padding: 27rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.matchBrandBar .content .contentTxt > view > text {
+  font-size: 28rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: #B2B2B2;
+}
+.matchBrandBar .content .contentTxt > view .active {
+  color: #282828;
+}
+.matchBrandBar .content .contentTxt > view image {
+  width: 16rpx;
+  height: 20rpx;
+}
+.matchBrandBar .content .nowSubmit {
+  width: 630rpx;
+  height: 88rpx;
+  background-color: #287CFA;
+  border-radius: 20rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: #FFFFFF;
+  margin-top: 13rpx;
+}
+.matchBrandBar .forYouBrand {
+  width: 100%;
+  padding: 32rpx;
+  position: absolute;
+  margin-top: 970rpx;
+  padding-bottom: 20rpx;
+}
+.matchBrandBar .forYouBrand .titleName {
+  font-size: 36rpx;
+  font-family: PingFangSC-Medium, PingFang SC;
+  font-weight: 500;
+  color: #1A1A1A;
+}
+.matchBrandBar .forYouBrand .contentBrand {
+  width: 100%;
+  border-bottom: 1px solid #EFEFEF;
+  padding: 32rpx 0;
+}
+.matchBrandBar .forYouBrand .contentBrand:last-child {
+  border-bottom: none;
+}
+.matchBrandBar .forYouBrand .noDataClass {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.matchBrandBar .forYouBrand .noDataClass image {
+  width: 330rpx;
+  height: 287rpx;
+  margin: 0 0 36rpx;
+}
+.matchBrandBar .forYouBrand .noDataClass > text {
+  font-size: 24rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: #B2B2B2;
+}
+.matchBrandBar .popClass {
+  margin-bottom: -70rpx;
+  padding-bottom: 50rpx;
+  background: #fff;
+}
+.matchBrandBar .popClass .van-picker__cancel {
+  color: #747474;
+  font-size: 32rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+}
+.matchBrandBar .popClass .van-picker__confirm {
+  color: #282828;
+  font-size: 32rpx;
+  font-family: PingFangSC-Medium, PingFang SC;
+  font-weight: 500;
+}
+.matchBrandBar .popClass .van-picker__title {
+  color: #747474;
+  font-size: 28rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+}
+.matchBrandBar .popClass .van-picker-column__item {
+  font-size: 32rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: #747474;
+}
+.matchBrandBar .popClass .van-picker-column__item--selected {
+  font-weight: 500;
+  color: #282828;
+}

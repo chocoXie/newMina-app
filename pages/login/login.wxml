@@ -1,0 +1,43 @@
+<view class="container">
+  <view class="top" style="height:{{heightTop}}px">
+    <view class="cancelBackBox" bindtap="cancelBack" data-typsMsg="返回">
+      <image wx:if="{{type}}" class="imageOther"  src="../../static/images/search/homeLoginBack.png" />
+      <image wx:else src="../../static/images/search/leftTopBack.png" />
+    </view>
+    <text>登录</text>
+  </view>
+  <view class="login-box">
+    <div class="loginBgTip1"></div>
+    <image class="banner" mode="aspectFit" src="https://huiju-new-prod.oss-cn-beijing.aliyuncs.com/weChat_images/login_headerLogo.png"></image>
+    <button class="loginCoupon" data-typsMsg="新用户减免券" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">
+      <image mode="aspectFit" src="../../static/weChat_images/loginCoupon.png" ></image>
+    </button>
+    <block>
+      <button class="wx-login-btn" data-typsMsg="微信授权登录" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">
+        <image class="wxlogo" mode="aspectFit" src="../../static/images/wxlogo.png"></image>
+        微信授权登录
+      </button>
+    </block>
+    <button class="account-login-btn" bindtap="accountLogin" data-typsMsg="手机快捷登录">手机号快捷登录></button>
+     <div class="login-footer">
+        <div class="loginBgTip2"></div>
+    <view class="login-footer-m">
+          登录即代表同意【餐盟严选】<b data-id="1" bindtap='goPage'>用户协议、</b ><b data-id="2"  bindtap='goPage' class="active_info">隐私政策</b>   
+      </view>
+  </div>
+  </view>
+  <van-popup show="{{loginStayPop}}" bindtouchstart="_touchstart" catchtouchmove="_touchmove" bindtouchend="_touchend">
+     <view class="loginStayContent">
+      <view class="loginStayMain">
+          <view class="title">不登录将错过<b>上万元</b>福利哦~</view>
+          <image class="loginStayTip" mode="aspectFit" src="../../static/weChat_images/loginStayTip.png"></image>
+          <button class="StayPropLogin" open-type="getPhoneNumber" data-typsMsg="挽留弹窗-微信一键登录" bindgetphonenumber="getPhoneNumber">
+          <image class="wxlogo" mode="aspectFit" src="../../static/images/wxlogo.png"></image>
+          微信授权登录
+        </button>
+        <view class="stayGiveUpLogin" bindtap="stayGiveUpLogin" data-typsMsg="挽留弹窗-暂时放弃">暂时放弃</view>
+      </view>
+      <image class="closeLoginStayPop" bindtap="closeLoginStayPop" data-typsMsg="挽留弹窗-关闭" mode="aspectFit" src="../../static/weChat_images/closeLoginStayPop.png"></image>
+     </view> 
+  </van-popup>
+</view>

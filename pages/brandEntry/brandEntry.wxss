@@ -1,0 +1,318 @@
+page{
+    background-color: #F7F7F7;
+    width: 100%;
+}
+.brandEntryBar {
+    background-color: #e8f0f7;
+    width: 100%;
+    /* position: fixed; */
+    overflow-y: auto;
+}
+.brandEntry{
+    height: auto;
+    padding-top: 10rpx;
+}
+.topBack {
+    width: 100%;
+    display: flex;
+    padding-left: 38rpx;
+    position: fixed;
+    background-color: #E8F0F7;
+    z-index: 99;
+}
+.topBack image {
+    width: 32rpx;
+    height: 32rpx;
+    margin-right: 239rpx;
+}
+.topBack text {
+    font-size: 32rpx;
+    font-family: PingFangSC-Medium, PingFang SC;
+    font-weight: 500;
+    color: #000000;
+}
+.brandEntryBar .topImage {
+    width: 100%;
+    height: 261rpx;
+}
+.brandEntryBar .topImage image {
+    width: 100%;
+    display: inline-block;
+    height: 100%;
+}
+
+.brandEntryBar .contentBar {
+    width: 100%;
+    padding: 0 29rpx 0 35rpx;
+}
+.brandEntryBar .content {
+    width: 100%;
+    background-color: #fff;
+    height: 952rpx;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 32rpx;
+}
+.brandEntryBar .content .topTitle {
+    position: relative;
+    background-size: auto;
+    width: 100%;
+    height: 92rpx;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 30rpx;
+}
+.brandEntryBar .content .topTitle image {
+    position: absolute;
+    top: 0;
+    width: 363rpx;
+    height: 100%;
+}
+.brandEntryBar .content .topTitle text {
+    z-index: 9;
+    font-size: 36rpx;
+    font-family: PingFangSC-Medium, PingFang SC;
+    font-weight: 500;
+    color: #F42828;
+}
+
+.brandEntryBar .content .messageContent {
+    width: 100%;
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.brandEntryBar .content .messageContent .van-cell {
+    padding-top: 0;
+    margin-bottom: 20rpx;
+}
+.brandEntryBar .content .messageContent .van-field__error-message {
+    position: absolute;
+}
+.brandEntryBar .content .messageContent .van-cell::after {
+    display: none;
+}
+.brandEntryBar .van-hairline--bottom:after,
+.van-hairline--left:after,
+.van-hairline--right:after,
+.van-hairline--surround:after,
+.van-hairline--top-bottom:after,
+.van-hairline--top:after,
+.van-hairline:after {
+    display: none;
+}
+.brandEntryBar .content .messageContent .van-field__input {
+    width: 460rpx;
+    height: 70rpx;
+    border-radius: 8rpx;
+    border: 1px solid #e4e4e4;
+    padding-left: 21rpx;
+}
+.brandEntryBar .content .messageContent .van-cell__title {
+    text-align: right;
+    margin-right: 10rpx;
+    font-size: 28rpx;
+    font-family: PingFangSC-Regular, PingFang SC;
+    font-weight: 400;
+    color: #747474;
+}
+.brandEntryBar .content .messageContent .smsClass .van-field__input {
+    width: 250rpx;
+}
+.brandEntryBar .smsClass span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 192rpx;
+    height: 68rpx;
+    border-radius: 8rpx;
+    border: 1px solid #e4e4e4;
+    background-color: #fff;
+    font-size: 22rpx;
+    font-family: PingFangSC-Regular, PingFang SC;
+    font-weight: 400;
+    color: #222222;
+}
+.brandEntryBar .smsClass .verificationCode {
+    color: #b2b2b2;
+}
+.brandEntryBar .smsClass .isShowColor {
+    color: #b2b2b2 !important;
+}
+.brandEntryBar .messageContent .submit {
+    width: 600rpx;
+    height: 96rpx;
+    margin-top: 84rpx;
+    margin-bottom: 36rpx;
+}
+.brandEntryBar .messageContent .submit image {
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+}
+.brandEntryBar .messageContent .flooter {
+    font-size: 24rpx;
+    font-family: PingFangSC-Regular, PingFang SC;
+    font-weight: 400;
+    color: #999999;
+}
+
+.brandEntryBar .submiuSuccessDialog {
+    height: 387rpx;
+}
+.brandEntryBar .submiuSuccessDialog .van-dialog__header {
+    font-size: 42rpx;
+    font-family: PingFangSC-Semibold, PingFang SC;
+    font-weight: 600;
+    color: #282828;
+}
+.brandEntryBar .submiuSuccessDialog .contentDialog {
+    width: 100%;
+    display: inline-block;
+    padding: 0 75rpx;
+    font-size: 32rpx;
+    font-family: PingFangSC-Regular, PingFang SC;
+    font-weight: 400;
+    color: #747474;
+    text-align: center;
+    margin-top: 30rpx;
+    margin-bottom: 45rpx;
+}
+.brandEntryBar .submiuSuccessDialog .know {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 108rpx;
+    border-top: 1rpx solid #e2e2e2;
+    font-size: 32rpx;
+    font-family: PingFangSC-Semibold, PingFang SC;
+    font-weight: 600;
+    color: #F42828;
+}
+.brandEntryBar .weChatDialog .van-dialog__header {
+    display: none;
+}
+.brandEntryBar .weChatDialogBar {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+}
+.brandEntryBar .weChatDialogBar .one {
+    width: 30rpx;
+    height: 30rpx;
+    position: absolute;
+    right: 34rpx;
+    top: 31rpx;
+}
+.brandEntryBar .weChatDialogBar .two {
+    font-size: 42rpx;
+    font-family: PingFangSC-Semibold, PingFang SC;
+    font-weight: 600;
+    color: #282828;
+    line-height: 59rpx;
+    letter-spacing: 2rpx;
+    margin: 36rpx 0 8rpx 0;
+}
+.brandEntryBar .weChatDialogBar .three {
+    font-size: 24rpx;
+    font-family: PingFangSC-Regular, PingFang SC;
+    font-weight: 400;
+    color: #747474;
+    margin-bottom: 23rpx;
+}
+.brandEntryBar .weChatDialogBar .four {
+    width: 286rpx;
+    height: 288rpx;
+}
+.brandEntryBar .weChatDialogBar .five {
+    height: 40rpx;
+    background: rgba(37, 117, 237, 0.11);
+    font-size: 20rpx;
+    font-family: PingFangSC-Regular, PingFang SC;
+    font-weight: 400;
+    color: #287cfa;
+    /* margin: 24rpx 0 39rpx 0; */
+    line-height: 40rpx;
+    text-align: center;
+    padding: 0 20rpx;
+}
+.brandEntryBar .weChatDialogBar .six {
+    height: 40rpx;
+    background: rgba(37, 117, 237, 0.11);
+    font-size: 20rpx;
+    font-family: PingFangSC-Regular, PingFang SC;
+    font-weight: 400;
+    color: #287cfa;
+    margin: 24rpx 0 39rpx 0;
+    line-height: 40rpx;
+    text-align: center;
+    padding: 0 20rpx;
+}
+.brandEntryBar .weChatDialogBar .seven {
+    width: 100%;
+    align-items: center;
+    display: flex;
+    justify-content:center;
+    margin-top: 45rpx;
+}
+.brandEntryBar .weChatDialogBar .seven >.wechat {
+    width: 228rpx;
+    height: 70rpx;
+    background: #FD5353;
+    border-radius: 35rpx;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 40rpx;
+    color: #fff;
+    font-size: 26rpx;
+    font-family: PingFangSC-Medium, PingFang SC;
+    font-weight: 500;
+    color: #FFFFFF;
+    margin-right: 20rpx;
+}
+.brandEntryBar .weChatDialogBar .seven >.iphone {
+    width: 228rpx;
+    height: 70rpx;
+    background: #F48F28;
+    border-radius: 35rpx;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 40rpx;
+    color: #fff;
+    font-size: 26rpx;
+    font-family: PingFangSC-Medium, PingFang SC;
+    font-weight: 500;
+    color: #FFFFFF;
+}
+.brandEntryBar .weChatDialogBar .eight {
+    width: 277rpx;
+    font-size: 20rpx;
+    font-family: PingFangSC-Regular, PingFang SC;
+    font-weight: 400;
+    color: #747474;
+    margin: 39rpx 0 42rpx 0;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    line-height: 28rpx;
+}
+.brandEntryBar .weChatDialogBar image {
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+}
+
+.van-toast--text text{
+    font-size: 24rpx;
+}

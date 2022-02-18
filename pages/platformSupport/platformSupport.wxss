@@ -1,0 +1,189 @@
+.platformSupportBar {
+    width: 100%;
+    position: fixed;
+    height: 100%;
+    overflow-y: auto;
+}
+.platformSupportBar image {
+    width: 100%;
+    display: block;
+}
+.platformSupportBar .content {
+    position: relative;
+}
+.platformSupportBar .contentList {
+    position: absolute;
+    top: 68rpx;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.platformSupportBar .contentList .contentTop {
+    position: relative;
+    height: 40rpx;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    margin-bottom: 50rpx;
+}
+.platformSupportBar .contentList .contentTop text {
+    display: inline-block;
+    text-align: center;
+    position: absolute;
+    font-size: 42rpx;
+    font-weight: bold;
+    color: #ffffff;
+    z-index: 999;
+    width: 100%;
+}
+.platformSupportBar .contentList .contentTop .bigBox {
+    position: absolute;
+    width: 318rpx;
+    height: 29rpx;
+    background: #fcad46;
+    bottom: -10rpx;
+}
+.platformSupportBar .contentList .contentTop .smallBox {
+    position: absolute;
+    width: 17rpx;
+    height: 17rpx;
+    background: #fcad46;
+    bottom: -6rpx;
+    right: 188rpx;
+}
+
+.platformSupportBar .contentList .contentCenBar {
+    width: 100%;
+    padding: 0 30rpx;
+}
+.platformSupportBar .contentList .contentCen {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+.platformSupportBar .contentList .contentCen li {
+    height: 194rpx;
+    width: 100%;
+    background-color: #fff;
+    padding: 16rpx 0 16rpx 16rpx;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    position: relative;
+    margin-bottom: 50rpx;
+}
+.platformSupportBar .contentList .contentCen li .left {
+    width: 330rpx;
+    height: 198rpx;
+}
+.platformSupportBar .contentList .contentCen li .left image {
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+}
+
+.platformSupportBar .contentList .contentCen li .rightIcon {
+    position: absolute;
+    width: 137rpx;
+    height: 44rpx;
+    background: #d01f27;
+    border-bottom-left-radius: 100rpx;
+    right: 0;
+    top: 0;
+    font-size: 42rpx;
+    font-family: zihun181hao;
+    font-weight: normal;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.platformSupportBar .contentList .contentCen li .rightIconTwo {
+    background: #FFCF29;
+    color: #A17D00;
+}
+.platformSupportBar .contentList .contentCen li .rightIconThree {
+    background: #D0A81F;
+    color: #FFFFFF;
+}
+.platformSupportBar .contentList .contentCen li .right {
+    padding-left: 25rpx;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.platformSupportBar .contentList .contentCen li .right view:nth-child(1) {
+    font-size: 36rpx;
+    font-weight: bold;
+    color: #06031e;
+    margin-bottom: 10rpx;
+}
+.platformSupportBar .contentList .contentCen li .right view:nth-child(2) {
+    font-size: 28rpx;
+    font-weight: 500;
+    color: #999999 !important;
+    display: flex;
+    align-items: center;
+    line-height: 40rpx;
+    margin-bottom: 6rpx;
+}
+.platformSupportBar .contentList .contentCen li .right view:nth-child(2) b {
+    font-size: 40rpx;
+    font-family: Lato;
+    font-weight: bold;
+    color: #ff3228;
+    margin: 0 7rpx 0 16rpx;
+}
+.platformSupportBar .contentList .contentCen li .right view:nth-child(2) i {
+    font-size: 28rpx;
+    font-weight: 500;
+    color: #ff3228;
+}
+.platformSupportBar .contentList .contentCen li .right view:nth-child(3) {
+    font-size: 28rpx;
+    font-weight: 500;
+    color: #999999;
+    display: flex;
+    align-items: center;
+    line-height: 40rpx;
+}
+.platformSupportBar .contentList .contentCen li .right view:nth-child(3) b {
+    font-size: 40rpx;
+    font-family: Lato;
+    font-weight: bold;
+    color: #fcad46;
+    margin: 0 7rpx 0 16rpx;
+
+}
+.platformSupportBar .contentList .contentCen li .right view:nth-child(3) i {
+    font-size: 28rpx;
+    font-weight: 500;
+    color: #fcad46;
+}
+.contentList .contentbot {
+    width: 268rpx;
+    height: 54rpx;
+    background: #fcad46;
+    border-radius: 27px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28rpx;
+    font-weight: bold;
+    color: #ffffff;
+}
+
+.contentList .contentbot image{
+    display: inline-block;
+    width: 17rpx !important;
+    height: 21rpx;
+    margin-left: 16rpx;
+}

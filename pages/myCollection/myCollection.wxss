@@ -1,0 +1,27 @@
+.containerMyCollection .notData {
+  margin-top: 64rpx;
+}
+.containerMyCollection .dataList {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-direction: column;
+  width: 100%;
+  padding-left: 32rpx;
+  padding-right: 32rpx;
+  margin-top: 35rpx;
+}
+.containerMyCollection .dataList .guessLikeItem {
+  position: relative;
+  margin-bottom: 60rpx;
+}
+.containerMyCollection .dataList .guessLikeItem .itemLine {
+  position: absolute;
+  width: 100%;
+  height: 1rpx;
+  bottom: -30rpx;
+  background-color: #EFEFEF;
+}
+.containerMyCollection .dataList .guessLikeItem:last-child {
+  margin-bottom: 30rpx;
+}

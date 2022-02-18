@@ -1,0 +1,27 @@
+<view class="content">
+    <view class="notData">
+        <image src="http://huiju-new-prod.oss-cn-beijing.aliyuncs.com/weChat_images/myInfo/notData.png" />
+        <view>
+            暂无<text wx:if="{{titleName=='品牌' || titleName=='看点' || titleName=='收藏'}}">数据</text>
+            <text wx:elif="{{titleName=='关注'}}">关注</text>，
+            <text wx:if="{{titleName=='收藏'}}">您还没有收藏哦~</text>
+            <text wx:elif="{{titleName=='看点'}}">您还没有浏览过看点哦~</text>
+            <b  wx:else bindtap="gofenleiTab">快去寻找自己喜欢的品牌吧～</b>
+        </view>
+        <view class="dividingLine"></view>
+        <view class="guessLike">
+            <view class="title">猜你喜欢</view>
+            <view    class="guessLikeItem" wx:for="{{guessYouList}}" wx:key="*this">
+                <brand-components wx:if="{{titleName=='品牌'}}" source="我的-我的足迹-猜你喜欢" itemData="{{item}}"></brand-components>
+                <brand-components wx:if="{{titleName=='关注'}}" source="我的-我的关注-猜你喜欢" itemData="{{item}}"></brand-components>
+                <news-information wx:if="{{titleName=='看点' || titleName=='收藏'  }}" itemData="{{item}}"></news-information>
+                <view class="itemLine"></view>
+            </view>
+        </view>
+        <view class="moredata" bindtap="gofenleiTab" wx:if="{{guessYouList.length>0}}">
+            <view class="more">查看更多</view>
+            <image  src="../../static/images/classification/rightIcon.png" />
+        </view>
+        <!-- <view class="notMoreData"  wx:if="{{guessYouList.length>0}}">已经全部加载完毕</view> -->
+    </view>
+</view>

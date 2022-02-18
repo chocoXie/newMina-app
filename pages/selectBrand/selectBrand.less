@@ -1,0 +1,92 @@
+.selectBrand{
+    .selectBrandList{
+        background: #F7F7F7;
+        padding-top: 20rpx;
+        // background: #FFFFFF;
+        .selectBrandItem{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 40rpx 32rpx;
+            border-bottom: 1rpx solid #EBEBEB;
+            background: #fff;
+            &:last-child{
+                border-bottom: 0;
+            }
+            .icon_checkedBrand{
+                width: 40rpx;
+                height: 40rpx;
+            }
+            .brandImgLogo{
+                width: 160rpx;
+                height: 160rpx;
+                border-radius: 16rpx;
+            }
+            .brandComponentsBarRight {
+                width: 430rpx;
+                display: flex;
+                align-items: flex-start;
+                justify-content: center;
+                flex-direction: column;
+                margin-left: 24rpx;
+                >view:nth-child(1) {
+                    display: flex;
+                    justify-content: start;
+                    align-items: center;
+                    width: 100%;
+                    font-size: 32rpx;
+                    font-family: PingFangSC-Medium, PingFang SC;
+                    font-weight: 500;
+                    color: #282828;
+                    margin-bottom: 16rpx;
+                    .rankingTag{
+                        margin-left: 12rpx;
+                        position: relative;
+                        width: 124rpx;
+                        height: 30rpx;
+                        image{
+                            display: block;
+                            width: 100%;
+                            height: 100%;
+                        }
+                        text{
+                            position: absolute;
+                            left: 75rpx;
+                            top: 50%;
+                            transform: translateY(-50%);
+                            font-size: 16rpx;
+                            font-family: PingFangSC-Semibold, PingFang SC;
+                            font-weight: 600;
+                            color: #533C28;
+                            line-height: 22rpx;
+                        }
+                    }
+                }
+        
+                >view:nth-child(2) {
+                    font-size: 24rpx;
+                    font-family: PingFangSC-Regular, PingFang SC;
+                    font-weight: 400;
+                    color: #747474;
+                    margin-bottom: 16rpx;
+                }
+        
+                >view:nth-child(3) {
+                    font-size: 24rpx;
+                    font-family: PingFangSC-Regular, PingFang SC;
+                    font-weight: 400;
+                    color: #747474;
+                    b{
+                        position: relative;
+                        top: 0;
+                        font-size: 28rpx;
+                        font-family: PingFangSC-Medium, PingFang SC;
+                        font-weight: 500;
+                        color: #FD5353;
+                        line-height: 40rpx;
+                    }
+                }
+            }
+        }
+    }
+}

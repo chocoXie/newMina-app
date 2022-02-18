@@ -1,0 +1,24 @@
+<view class="wrapper">
+    <view style="position:sticky; top: 0;z-index: 10;">
+        <public-title titleName="反馈与建议" backColor='#F2F2F2'></public-title>
+    </view>
+    <view class="feedback-content">
+        <view class="feedback-header">
+            <view class="feedback-title">意见类型：</view>
+            <view class="feedback-subTitle" bindtap='showSheet'>
+                {{actions[showIndex].name}}
+                <view class="right-icon"></view>
+            </view>
+        </view>
+        <van-divider hairline='{{true}}'/>
+        <view class="section">
+            <textarea value="{{textareaVal}}" name='textarea' bindinput='btnActiveFun'  maxlength='200' placeholder='{{placeholderText}}' placeholder-class="input-placeholder"/>
+        </view>
+      
+    </view>
+      <view class="section-input">
+           {{myPhone}}
+      </view>
+     <button bindtap='submitFeedback' class="submit-btn" disabled='{{disabledValue}}'>发送</button>
+    <van-action-sheet show="{{ show }}" actions="{{ actions }}" bind:select='selectItem'  bind:close="onClose" bind:cancel='onClose' cancel-text="取消" />
+</view>

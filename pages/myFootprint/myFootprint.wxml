@@ -1,0 +1,55 @@
+<view class="containerMyFootprint">
+  <!-- 顶部title -->
+  <view class="titleFix">
+    <public-title titleName="我的足迹"></public-title>
+  </view>
+
+  <!-- 顶部导航 -->
+  <view class="menuClass" style="top:{{top}}px">
+    <view bindtap="menuClick" data-id="{{0}}" class="brand {{menuActive==0?'menuActive':''}}">
+      品牌
+    </view>
+    <view bindtap="menuClick" data-id="{{1}}" class="info {{menuActive==1?'menuActive':''}}">
+      看点
+    </view>
+  </view>
+
+  <!-- 品牌列表展示 -->
+  <view class="content" wx:if="{{menuActive==0}}">
+    <!-- 品牌没有数据 -->
+    <view class="notData" wx:if="{{emptyData==2}}">
+      <public-notdataList titleName="品牌"></public-notdataList>
+    </view>
+    <view class="dataList" wx:if="{{emptyData==1}}">
+      <view class="guessLikeItem" wx:for="{{dataList}}" wx:key="*this"  wx:if="{{item.brand}}" >
+        <brand-components source="我的-我的足迹" itemData="{{item.brand}}"></brand-components>
+        <view class="itemLine" wx:if = '{{dataList[index+1].brand}}'></view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 看点列表展示 -->
+  <view class="content" wx:if="{{menuActive==1}}">
+    <!-- 看点没有数据 -->
+    <view class="notData" wx:if="{{emptyData==2}}">
+      <public-notdataList titleName="看点"></public-notdataList>
+    </view>
+     <view class="dataList" wx:if="{{emptyData==1}}">
+      <view class="guessLikeItem" wx:for="{{dataList}}" wx:key="*this" >
+        <view wx:if="{{item.informationInfo}}">
+          <news-information wx:if="{{item.informationInfo}}" itemData="{{item}}"></news-information>
+          <view class="itemLine" wx:if = '{{dataList[index+1].informationInfo}}'></view>
+        </view>
+        <view wx:if="{{item.vod}}">
+          <news-video wx:if="{{item.vod}}" itemData="{{item}}"></news-video>
+        </view>
+      </view>
+     
+    </view>
+  </view>
+
+  <view style="text-align: center;margin:20rpx  0 20rpx 0;width:100%">
+    <view wx:if="{{loading}}">加载中...</view>
+    <view wx:if="{{noMore}}">已全部加载完毕</view>
+  </view>
+</view>

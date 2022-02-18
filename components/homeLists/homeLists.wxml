@@ -1,0 +1,68 @@
+<view class="homeListBar">
+    <swiper class="tab-box" current="{{nowTab}}" duration="300" style="height:{{swiperheight}}px" bindchange="itemChange" > 
+        <swiper-item wx:for="{{dataLists}}" wx:key="index" wx:for-item="parentitem" >
+            <ul class="item1" data-item="{{index}}">
+                <li wx:for="{{parentitem.listData}}" bindtap="dataListsClick" data-item="{{item}}" data-id="{{item.brandId}}" wx:for-index="index" wx:for-item="item" wx:key="id">
+                    <image src="{{item.coverUrl}}"></image>
+                    <view class="title">{{item.brandName}}</view>
+                    <view class="content">{{item.mainPoint}}</view>
+                    <view class="label">
+                        <text>总部{{item.location}}</text>
+                        <text>{{item.tagList[0]}}</text>
+                    </view>
+                    <view class="franchiseFee">
+                        <text>投资总额：</text>
+                        <text>{{item.joinInvestMin}}-{{item.joinInvestMax}}万</text>
+                    </view>
+                    <view wx:if="{{item.category == '饮品甜品' || item.category == '中西快餐' || item.category == '特色小吃'}}">
+                        <view class="rankingTag" wx:if="{{item.ranking}}">
+                            <block wx:if="{{item.category == '饮品甜品'}}">
+                                <image src="../../static/images/sy_cyTag.png"></image>
+                                <text>TOP{{item.ranking}}</text>
+                            </block>
+                        <block wx:if="{{item.category == '中西快餐'}}">
+                                <image src="../../static/images/sy_kcTag.png"></image>
+                                <text>TOP{{item.ranking}}</text>
+                            </block>
+                            <block wx:if="{{item.category == '特色小吃'}}">
+                                <image src="../../static/images/sy_xcTag.png"></image>
+                                <text>TOP{{item.ranking}}</text>
+                            </block>
+                        </view>
+                    </view>
+                </li>
+            </ul>
+        </swiper-item>
+    </swiper>
+</view>
+<!-- <ul>
+        <li wx:for="{{dataLists}}" bindtap="dataListsClick" data-item="{{item}}" data-id="{{item.brandId}}" wx:for-index="index" wx:for-item="item" wx:key="id">
+            <image src="{{item.coverUrl}}"></image>
+            <view class="title">{{item.brandName}}</view>
+            <view class="content">{{item.mainPoint}}</view>
+            <view class="label">
+                <text>总部{{item.location}}</text>
+                <text>{{item.tagList[0]}}</text>
+            </view>
+            <view class="franchiseFee">
+                <text>投资总额：</text>
+                <text>{{item.joinInvestMin}}-{{item.joinInvestMax}}万</text>
+            </view>
+            <view wx:if="{{item.category == '饮品甜品' || item.category == '中西快餐' || item.category == '特色小吃'}}">
+                <view class="rankingTag" wx:if="{{item.ranking}}">
+                    <block wx:if="{{item.category == '饮品甜品'}}">
+                        <image src="../../static/images/sy_cyTag.png"></image>
+                        <text>TOP{{item.ranking}}</text>
+                    </block>
+                <block wx:if="{{item.category == '中西快餐'}}">
+                        <image src="../../static/images/sy_kcTag.png"></image>
+                        <text>TOP{{item.ranking}}</text>
+                    </block>
+                    <block wx:if="{{item.category == '特色小吃'}}">
+                        <image src="../../static/images/sy_xcTag.png"></image>
+                        <text>TOP{{item.ranking}}</text>
+                    </block>
+                </view>
+            </view>
+        </li>
+    </ul> -->

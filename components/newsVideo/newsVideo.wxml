@@ -1,0 +1,14 @@
+<view class="newsVideoBar" bindtap="newsVideoBarClick">
+    <image class="top" src="{{itemData.vod.cover}}" />
+    <image class="videoBf" src="http://huiju-new-prod.oss-cn-beijing.aliyuncs.com/weChat_images/myInfo/videoBf.png" />
+    <view class="cen">{{itemData.vod.title}}</view>
+    <view class="bottom">
+        <view class="tag" wx:if="{{itemData.vod.keyWords}}">
+            <view wx:for="{{itemData.vod.keyWords}}" wx:key="*this">{{item.name}}</view>
+        </view>
+        <view class="lookInfo">
+            <image src="http://huiju-new-prod.oss-cn-beijing.aliyuncs.com/weChat_images/myInfo/video-see.png" />
+            <view >{{itemData.vod.clickNum}}万人看过</view>
+        </view>
+    </view>
+</view>

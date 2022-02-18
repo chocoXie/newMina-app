@@ -1,0 +1,54 @@
+<view class="brandComponentsBar" bindtap="brandComponentClick">
+    <image wx:if="{{isType!='matchBrand'}}" class="brandComponentsBarLeft" src="{{itemData.listPicUrl}}" />
+    <image wx:else class="brandComponentsBarLeft" src="{{itemData.img.imgUrl}}" />
+    <view wx:if="{{isType!='matchBrand'}}" class="brandComponentsBarRight">
+        <view>
+            {{itemData.brandName}}
+            <view wx:if="{{itemData.category == '饮品甜品' || itemData.category == '中西快餐' || itemData.category == '特色小吃'}}">
+                <view class="rankingTag" wx:if="{{itemData.ranking && itemData.brandName.length<11}}">
+                    <image wx:if="{{itemData.category == '饮品甜品'}}" src="../../static/images/list_cyTag.png"></image>
+                    <image wx:if="{{itemData.category == '中西快餐'}}" src="../../static/images/list_kcTag.png"></image>
+                    <image wx:if="{{itemData.category == '特色小吃'}}" src="../../static/images/list_xcTag.png"></image>
+                    <text wx:if="{{itemData.ranking > 9}}" style="left:68rpx;">TOP{{itemData.ranking}}</text>
+                    <text wx:else>TOP{{itemData.ranking}}</text>
+                </view>
+            </view>
+        </view>
+        <view>主营产品：{{itemData.mainProducts}}</view>
+        <view class="brandComponentsBarRightCen">
+               <scroll-view scroll-x class="tagBar">
+                    <text class="tag">总部{{itemData.location}}</text>
+                    <text class="tag" wx:for="{{itemData.tagList}}" wx:for-item="tagListitem">{{tagListitem}}</text>
+                    <!-- <text class="tag">{{itemData.tagList[0]}}</text>
+                    <text class="tag">{{itemData.tagList[1]}}</text> -->
+               </scroll-view>
+        </view> 
+        <view>#{{itemData.category}} | <b>{{itemData.joinInvestMin}}-{{itemData.joinInvestMax}}万</b></view>
+    </view>
+    
+     <view wx:else class="brandComponentsBarRight">
+        <view>
+            {{itemData.brandName}}
+            <view wx:if="{{itemData.category == '饮品甜品' || itemData.category == '中西快餐' || itemData.category == '特色小吃'}}">
+                <view class="rankingTag" wx:if="{{itemData.ranking && itemData.brandName.length<11}}">
+                    <image wx:if="{{itemData.category == '饮品甜品'}}" src="../../static/images/list_cyTag.png"></image>
+                    <image wx:if="{{itemData.category == '中西快餐'}}" src="../../static/images/list_kcTag.png"></image>
+                    <image wx:if="{{itemData.category == '特色小吃'}}" src="../../static/images/list_xcTag.png"></image>
+                    <text wx:if="{{itemData.ranking > 9}}" style="left:68rpx;">TOP{{itemData.ranking}}</text>
+                    <text wx:else>TOP{{itemData.ranking}}</text>
+                </view>
+            </view>
+        </view>
+        <view>主营产品：{{itemData.mainProducts}}</view>
+        <view class="brandComponentsBarRightCen">
+               <scroll-view scroll-x class="tagBar">
+                    <text class="tag">总部{{itemData.location}}</text>
+                    <text class="tag" wx:for="{{itemData.brandTagList}}" wx:for-item="brandTagListItem">{{brandTagListItem}}</text>
+                    <!-- <text class="tag">{{itemData.brandTagList[0]}}</text>
+                    <text class="tag">{{itemData.brandTagList[1]}}</text> -->
+               </scroll-view>
+        </view> 
+        <view>匹配度：<b>{{itemData.matchDegree}}%</b></view>
+    </view>
+   
+</view>

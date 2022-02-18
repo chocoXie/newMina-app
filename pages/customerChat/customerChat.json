@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "public-title": "../../components/publicTitle/publicTitle"
+  }
+}

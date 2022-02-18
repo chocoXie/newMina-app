@@ -1,0 +1,32 @@
+page {
+  background-color: #fff;
+  height: 100%;
+}
+.containerAttention .content {
+  margin-top: 40rpx;
+}
+.containerAttention .content .notData {
+  margin-top: 170rpx;
+}
+.containerAttention .content .dataList {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-direction: column;
+  width: 100%;
+  padding-left: 32rpx;
+}
+.containerAttention .content .dataList .guessLikeItem {
+  position: relative;
+  margin-bottom: 60rpx;
+}
+.containerAttention .content .dataList .guessLikeItem .itemLine {
+  position: absolute;
+  width: 100%;
+  height: 1rpx;
+  bottom: -30rpx;
+  background-color: #EFEFEF;
+}
+.containerAttention .content .dataList .guessLikeItem:last-child {
+  margin-bottom: 30rpx;
+}

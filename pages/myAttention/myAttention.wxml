@@ -1,0 +1,23 @@
+<view class="containerAttention">
+    <!-- 顶部导航 -->
+    <view style="position:sticky; top: 0;z-index: 10;">
+        <public-title titleName="我的关注"></public-title>
+    </view>
+    <view wx:if="{{isShow}}">
+    </view>
+    <view class="content">
+        <view wx:if="{{emptyData==2}}" class="notData">
+            <public-notdataList titleName="关注"></public-notdataList>
+        </view>
+        <view wx:if="{{emptyData==1}}" class="dataList">
+            <view class="guessLikeItem" wx:for="{{dataList}}" wx:key="*this" wx:if="{{item.brand}}">
+                <brand-components source="我的-我的关注" itemData="{{item.brand}}"></brand-components>
+                <view wx:if="{{dataList[index+1]}}" class="itemLine"></view>
+            </view>
+            <view style="text-align: center;margin:0rpx  0 20rpx 0;width:100%">
+                <view wx:if="{{loading}}">加载中...</view>
+                <view wx:if="{{noMore}}">没有更多数据</view>
+            </view>
+        </view>
+    </view>
+</view>

@@ -1,0 +1,78 @@
+.newsVideoBar {
+  display: flex;
+  flex-direction: column;
+  background: #FFFFFF;
+  box-shadow: 0rpx 2rpx 40rpx 0rpx rgba(0, 0, 0, 0.04);
+  border-radius: 16rpx;
+  border: 1rpx solid #F2F2F2;
+  position: relative;
+}
+.newsVideoBar .top {
+  display: inline-block;
+  width: 650rpx;
+  height: 265rpx;
+  margin: 21rpx 18rpx 25rpx;
+  border-radius: 20rpx;
+}
+.newsVideoBar .videoBf {
+  position: absolute;
+  left: 291rpx;
+  width: 72rpx;
+  height: 72rpx;
+  display: inline-block;
+  top: 120rpx;
+}
+.newsVideoBar .cen {
+  font-size: 28rpx;
+  font-family: PingFangSC-Medium, PingFang SC;
+  font-weight: 500;
+  color: #282828;
+  line-height: 40rpx;
+  min-height: 80rpx;
+  padding: 0 32rpx;
+}
+.newsVideoBar .bottom {
+  display: flex;
+  padding-left: 32rpx;
+}
+.newsVideoBar .bottom .tag {
+  display: flex;
+  margin: 20rpx 0 14rpx 0;
+}
+.newsVideoBar .bottom .tag > view {
+  font-size: 24rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  padding: 4rpx 20rpx 4rpx 20rpx;
+  border-radius: 8rpx;
+  background: rgba(253, 83, 83, 0.09);
+  color: #FD5353;
+  margin-right: 10rpx;
+}
+.newsVideoBar .bottom .tag > view:nth-child(1) {
+  background: rgba(253, 83, 83, 0.09);
+  color: #FD5353;
+  margin-right: 10rpx;
+}
+.newsVideoBar .bottom .tag > view:nth-child(2) {
+  background: #F7F7F7;
+  color: #979797;
+  margin-right: 10rpx;
+}
+.newsVideoBar .bottom .lookInfo {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20rpx;
+}
+.newsVideoBar .bottom .lookInfo > image {
+  display: inline-block;
+  width: 24rpx;
+  height: 24rpx;
+  margin-right: 14rpx;
+}
+.newsVideoBar .bottom .lookInfo > view {
+  font-size: 24rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: #B2B2B2;
+}

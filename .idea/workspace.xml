@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="84d06fb8-78e1-4644-9abe-d81fd8559a52" name="默认更改列表" comment="">
+      <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.json" beforeDir="false" afterPath="$PROJECT_DIR$/app.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/homeLists/homeLists.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/homeLists/homeLists.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/homeLists/homeLists.wxml" beforeDir="false" afterPath="$PROJECT_DIR$/components/homeLists/homeLists.wxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/homeLists/homeLists.wxss" beforeDir="false" afterPath="$PROJECT_DIR$/components/homeLists/homeLists.wxss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/publicTitle/publicTitle.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/publicTitle/publicTitle.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/publicTitle/publicTitle.less" beforeDir="false" afterPath="$PROJECT_DIR$/components/publicTitle/publicTitle.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/publicTitle/publicTitle.wxml" beforeDir="false" afterPath="$PROJECT_DIR$/components/publicTitle/publicTitle.wxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/publicTitle/publicTitle.wxss" beforeDir="false" afterPath="$PROJECT_DIR$/components/publicTitle/publicTitle.wxss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/api.js" beforeDir="false" afterPath="$PROJECT_DIR$/config/api.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/vant-weapp/toast/index.wxss" beforeDir="false" afterPath="$PROJECT_DIR$/lib/vant-weapp/toast/index.wxss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packageA/pages/brandDetail/brandDetail.js" beforeDir="false" afterPath="$PROJECT_DIR$/packageA/pages/brandDetail/brandDetail.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packageA/pages/brandDetail/brandDetail.less" beforeDir="false" afterPath="$PROJECT_DIR$/packageA/pages/brandDetail/brandDetail.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packageA/pages/brandDetail/brandDetail.wxml" beforeDir="false" afterPath="$PROJECT_DIR$/packageA/pages/brandDetail/brandDetail.wxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packageA/pages/brandDetail/brandDetail.wxss" beforeDir="false" afterPath="$PROJECT_DIR$/packageA/pages/brandDetail/brandDetail.wxss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packageA/pages/matchBrand/matchBrand.json" beforeDir="false" afterPath="$PROJECT_DIR$/packageA/pages/matchBrand/matchBrand.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packageA/pages/matchBrand/matchBrand.wxml" beforeDir="false" afterPath="$PROJECT_DIR$/packageA/pages/matchBrand/matchBrand.wxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packageA/pages/swiperDetails/swiperDetails.js" beforeDir="false" afterPath="$PROJECT_DIR$/packageA/pages/swiperDetails/swiperDetails.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packageA/pages/swiperDetails/swiperDetails.json" beforeDir="false" afterPath="$PROJECT_DIR$/packageA/pages/swiperDetails/swiperDetails.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packageA/pages/swiperDetails/swiperDetails.wxml" beforeDir="false" afterPath="$PROJECT_DIR$/packageA/pages/swiperDetails/swiperDetails.wxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packageA/staticA/images/branDetail/brandIcon11.png" beforeDir="false" afterPath="$PROJECT_DIR$/packageA/staticA/images/branDetail/brandIcon11.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/brandEntry/brandEntry.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/brandEntry/brandEntry.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/brandEntry/brandEntry.json" beforeDir="false" afterPath="$PROJECT_DIR$/pages/brandEntry/brandEntry.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/brandEntry/brandEntry.wxml" beforeDir="false" afterPath="$PROJECT_DIR$/pages/brandEntry/brandEntry.wxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/brandEntry/brandEntry.wxss" beforeDir="false" afterPath="$PROJECT_DIR$/pages/brandEntry/brandEntry.wxss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/classificationList/classificationList.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/classificationList/classificationList.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/customerChat/customerChat.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/customerChat/customerChat.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/customerChat/customerChat.json" beforeDir="false" afterPath="$PROJECT_DIR$/pages/customerChat/customerChat.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/customerChat/customerChat.wxml" beforeDir="false" afterPath="$PROJECT_DIR$/pages/customerChat/customerChat.wxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/index/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/index/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/index/index.less" beforeDir="false" afterPath="$PROJECT_DIR$/pages/index/index.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/index/index.wxml" beforeDir="false" afterPath="$PROJECT_DIR$/pages/index/index.wxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/index/index.wxss" beforeDir="false" afterPath="$PROJECT_DIR$/pages/index/index.wxss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/iphoneLogin/iphoneLogin.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/iphoneLogin/iphoneLogin.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/login/login.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/login/login.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/myAttention/myAttention.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/myAttention/myAttention.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/myCollection/myCollection.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/myCollection/myCollection.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/myFootprint/myFootprint.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/myFootprint/myFootprint.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/myInfo/myInfo.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/myInfo/myInfo.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/search/search.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/search/search.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/search/search.json" beforeDir="false" afterPath="$PROJECT_DIR$/pages/search/search.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/search/search.less" beforeDir="false" afterPath="$PROJECT_DIR$/pages/search/search.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/search/search.wxml" beforeDir="false" afterPath="$PROJECT_DIR$/pages/search/search.wxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/search/search.wxss" beforeDir="false" afterPath="$PROJECT_DIR$/pages/search/search.wxss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/selectBrand/selectBrand.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/selectBrand/selectBrand.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/utils/user.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/util.js" beforeDir="false" afterPath="$PROJECT_DIR$/utils/util.js" afterDir="false" />
+    </list>
+    <ignored path="$PROJECT_DIR$/.tmp/" />
+    <ignored path="$PROJECT_DIR$/temp/" />
+    <ignored path="$PROJECT_DIR$/tmp/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FUSProjectUsageTrigger">
+    <session id="-1696269032">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.closed" value="3" />
+          <entry key="project.open.time.12" value="1" />
+          <entry key="project.open.time.3" value="1" />
+          <entry key="project.open.time.31" value="1" />
+          <entry key="project.opened" value="3" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.open">
+        <counts>
+          <entry key="babelrc" value="1" />
+          <entry key="json" value="1" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.open">
+        <counts>
+          <entry key="JSON" value="2" />
+        </counts>
+      </usages-collector>
+    </session>
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="375" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$USER_HOME$/Desktop/竞价页面 = 53/cm360.chspin.com/xyc/my-Y-xyc-dy-zxy-hyh-2105-02/index.html" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="650" />
+    <option name="y" value="14" />
+    <option name="width" value="716" />
+    <option name="height" value="591" />
+  </component>
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane" />
+      <pane id="Scope" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="D:/vue_product/vue-admin-template" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="project.scopes" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="84d06fb8-78e1-4644-9abe-d81fd8559a52" name="默认更改列表" comment="" />
+      <created>1639378305119</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1639378305119</updated>
+      <workItem from="1639378311434" duration="31000" />
+      <workItem from="1639386666017" duration="270000" />
+      <workItem from="1639443965134" duration="618000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="919000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <layout>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.088654354" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="8" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Terminal" order="9" />
+      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$USER_HOME$/Desktop/竞价页面 = 53/cm360.chspin.com/xyc/my-Y-xyc-dy-zxy-hyh-2105-02/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="350">
+          <caret line="14" column="92" selection-start-line="14" selection-start-column="92" selection-end-line="14" selection-end-column="92" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.babelrc" />
+    <entry file="file://$PROJECT_DIR$/../M_Web_IM/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="302">
+          <caret line="44" column="32" selection-start-line="44" selection-start-column="32" selection-end-line="44" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ScopeChooserConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>

@@ -1,0 +1,15 @@
+<view class="newsInformationBar" bindtap="informationClick">
+    <view class="left">
+        <image src="{{itemData.informationInfo.photos[0].url}}" />
+    </view>
+    <view class="right">
+        <view class="title">{{itemData.informationInfo.title}}</view>
+        <view class="tag">
+            <view wx:for="{{itemData.informationInfo.keyWords}}" wx:key="*this">{{item.name}}</view>
+        </view>
+        <view class="lookInfo">
+            <image src="http://huiju-new-prod.oss-cn-beijing.aliyuncs.com/weChat_images/myInfo/info-see.png" />
+            <view >{{itemData.informationInfo.realReadAmount}}万人看过</view>
+        </view>
+    </view>
+</view>

@@ -1,0 +1,8 @@
+<view class="search" style="height:{{heightTop}}px">
+    <navigator url="/pages/search/search" class="input"  style="height:{{searchInputHeight}}px">
+      <view class="getIntoIcon">
+          <image src="../../static/images/searchIcon.png"></image>
+      </view>
+      <text class="txt">请输入关键字搜索</text>
+    </navigator>
+  </view>

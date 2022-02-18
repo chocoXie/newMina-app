@@ -1,0 +1,104 @@
+.homeListBar {
+    width: 100%;
+    /* padding-top: 10rpx; */
+    /* margin-top: 10rpx; */
+    background-color: #fff;
+}
+.homeListBar ul {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.homeListBar ul li {
+    position: relative;
+    width: 335rpx;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin-bottom: 56rpx;
+}
+.homeListBar ul li .rankingTag{
+    position: absolute;
+    width: 60rpx;
+    height: 80rpx;
+    top: 0;
+    left: 16rpx;
+}
+.homeListBar ul li .rankingTag image{
+    width: 100%;
+    height: 100%;
+    border-radius: 0;
+}
+.homeListBar ul li .rankingTag text{
+    position: absolute;
+    top: 32rpx;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 20rpx;
+    font-family: Impact;
+    color: #FFFFFF;
+    line-height: 24rpx;
+}
+.homeListBar ul li image {
+    display: inline-block;
+    width: 100%;
+    height: 505rpx;
+    border-radius: 19rpx;
+}
+.homeListBar ul li .title {
+    font-size: 32rpx;
+    font-family: PingFangSC-Medium, PingFang SC;
+    font-weight: 700;
+    color: #282828;
+    margin: 18rpx 0 8rpx 0;
+    width: 100%;
+    overflow: hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
+}
+.homeListBar ul li .content {
+    font-size: 20rpx;
+    font-family: PingFangSC-Regular, PingFang SC;
+    font-weight: 400;
+    color: #666666;
+}
+
+.homeListBar ul li .label {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: flex-start;
+    margin: 12rpx 0 19rpx 0;
+}
+.homeListBar ul li .label text {
+    background: rgba(255, 98, 112, 0.06);
+    border-radius: 4px;
+    padding: 2rpx 8rpx;
+    font-size: 20rpx;
+    font-family: PingFangSC-Regular, PingFang SC;
+    font-weight: 400;
+    color: #fd5353;
+    margin-right: 8rpx;
+}
+.homeListBar ul li .label text:nth-child(2) {
+    background: rgba(40, 124, 250, 0.06);
+    color: #287cfa;
+}
+.homeListBar ul li .label text:nth-child(3) {
+    background: #f7f7f7;
+    color: #747474;
+}
+.homeListBar ul li .franchiseFee text{
+    font-size: 28rpx;
+    font-family: PingFangSC-Regular, PingFang SC;
+    font-weight: 400;
+    color: #666666;
+}
+
+.homeListBar ul li .franchiseFee text:nth-child(2) {
+    font-weight: 700;
+    color: #fd5353;
+}

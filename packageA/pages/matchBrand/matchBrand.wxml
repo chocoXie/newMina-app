@@ -1,0 +1,51 @@
+<view class="matchBrandBar">
+    <!-- <view class="title">
+        <image bindtap="backPage" src="../../staticA/images/branDetail/backIconBlack.png" />
+        <text>匹配品牌</text>
+    </view> -->
+    <!-- 顶部导航 -->
+    <view style="position:sticky; top: 0;z-index: 10;">
+        <public-title titleName="匹配品牌" ></public-title>
+    </view>
+    <image class="titleImage" src="http://huiju-new-prod.oss-cn-beijing.aliyuncs.com/weChat_images/matchBrandLogo.png" />
+    <view class="content">
+        <view class="contentTxt" wx:for="{{contentList}}" bindtap="contentClick" data-id="{{item.id}}" wx:key="*this">
+            <text>{{item.name}}</text>
+            <view>
+                <text wx:if="{{!item.value}}">{{item.placeholder}}</text>
+                <text class="active" wx:else>{{item.value}}</text>
+                <image class="titleImage" src="../../staticA/images/branDetail/rightTriangle.png" />
+            </view>
+        </view>
+        <view class="nowSubmit" bindtap="nowSubmit">立即匹配</view>
+    </view>
+    <view class="forYouBrand" wx:if="{{isClickSubmit}}">
+        <view class="titleName">适合你的品牌</view>
+        <view wx:if="{{dataList.length>0}}">
+            <view class="contentBrand" wx:for="{{dataList}}" wx:key="*this">
+                <brand-components type='matchBrand' itemData="{{item}}"></brand-components>
+            </view>
+        </view>
+        <view wx:else class="noDataClass">
+            <image class="titleImage" src="../../staticA/images/branDetail/noDataList.png" />
+            <text>请选择加盟条件为您匹配更合适的品牌~</text>
+        </view>
+    </view>
+    <!-- 弹框 -->
+    <van-popup show="{{ isShowPop1 }}" round position="bottom" bind:close="onClose">
+        <view class="popClass">
+            <van-picker confirm-button-text="确定" bind:confirm="confirmClick" bind:cancel="cancelClick" value-key="name" show-toolbar="{{true}}" title="{{popTitle}}" columns="{{ areaList1 }}" bind:change="onChange" />
+        </view>
+    </van-popup>
+    <van-popup show="{{ isShowPop2 }}" round position="bottom" bind:close="onClose">
+        <view class="popClass">
+            <van-picker confirm-button-text="确定" defaultIndex="{{contentList[1].index}}" bind:confirm="confirmClick" bind:cancel="cancelClick" value-key="name" show-toolbar="{{true}}" title="{{popTitle}}" columns="{{ areaList2 }}" bind:change="onChange" />
+        </view>
+    </van-popup>
+    <van-popup show="{{ isShowPop3 }}" round position="bottom" bind:close="onClose">
+        <view class="popClass">
+            <van-picker confirm-button-text="确定"  bind:confirm="confirmClick" bind:cancel="cancelClick" value-key="name" show-toolbar="{{true}}" title="{{popTitle}}" columns="{{ areaList3 }}" bind:change="onChange" />
+        </view>
+    </van-popup>
+     <van-toast id="van-toast" />
+</view>

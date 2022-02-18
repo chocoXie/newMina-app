@@ -1,0 +1,167 @@
+{
+  "setting": {},
+  "condition": {
+    "plugin": {
+      "list": []
+    },
+    "game": {
+      "list": []
+    },
+    "gamePlugin": {
+      "list": []
+    },
+    "miniprogram": {
+      "list": [
+        {
+          "name": "首页",
+          "pathName": "pages/index/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "登录",
+          "pathName": "pages/login/login",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "品牌入住",
+          "pathName": "pages/brandEntry/brandEntry",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "平台保障",
+          "pathName": "pages/platformSupport/platformSupport",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "搜索",
+          "pathName": "pages/search/search",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "分类tab",
+          "pathName": "pages/classificationList/classificationList",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "看点tab",
+          "pathName": "pages/lookInfoList/lookInfoList",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "登录页面",
+          "pathName": "pages/login/login",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "手机账号登录",
+          "pathName": "pages/iphoneLogin/iphoneLogin",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "产品详情页",
+          "pathName": "packageA/pages/brandDetail/brandDetail",
+          "query": "brandId=27c2775814e8427783cbb5e3b1ae13bf",
+          "scene": null
+        },
+        {
+          "name": "轮播图详情页",
+          "pathName": "packageA/pages/swiperDetails/swiperDetails",
+          "query": "allData={\"product\":[{\"name\":\"发过的\",\"imgUrl\":\"http://static-t.kuaidaoapp.com/brand/Me8yftPmDi.png\",\"sourceFrom\":null,\"linkUrl\":\"\",\"title\":\"哈哈哈哈哈\",\"imgDesc\":\"割发代首大风刮过但是发但是当时红烧豆腐\",\"isShow\":null},{\"name\":\"33\",\"imgUrl\":\"http://static-t.kuaidaoapp.com/brand/xETpHFdPYQ.jpg\",\"sourceFrom\":\"\",\"linkUrl\":\"\",\"title\":\"标题京东卡很厉害广东省管傻大个大撒哈根达\",\"imgDesc\":\"33\",\"isShow\":null},{\"name\":\"产品图的文件名称\",\"imgUrl\":\"http://static-t.kuaidaoapp.com/brand/kibf3KpGMr.jpg\",\"sourceFrom\":\"\",\"linkUrl\":\"\",\"title\":\"标题在这\",\"imgDesc\":\"产品图的描述\",\"isShow\":null},{\"name\":\"范德萨\",\"imgUrl\":\"http://static-t.kuaidaoapp.com/brand/488ZYaX6pj.jpg\",\"sourceFrom\":null,\"linkUrl\":\"\",\"title\":\"\",\"imgDesc\":\"富士达\",\"isShow\":null}],\"shopTypeimgs\":[{\"name\":\"312\",\"imgUrl\":\"http://static-t.kuaidaoapp.com/brand/MTt7PAxRrR.jpg\",\"sourceFrom\":\"\",\"linkUrl\":\"\",\"title\":\"312\",\"imgDesc\":\"31\",\"isShow\":null},{\"name\":\"歌诗达\",\"imgUrl\":\"http://static-t.kuaidaoapp.com/brand/XepEHMjdSB.jpg\",\"sourceFrom\":\"\",\"linkUrl\":\"\",\"title\":\"第三个\",\"imgDesc\":\"个as\",\"isShow\":null},{\"name\":\"店型文件名称\",\"imgUrl\":\"http://static-t.kuaidaoapp.com/brand/EcaxBGZf5m.jpg\",\"sourceFrom\":null,\"linkUrl\":\"\",\"title\":\"标题标题\",\"imgDesc\":\"描述描述\",\"isShow\":null}],\"hotSpotImgList\":[{\"name\":\"火爆02\",\"imgUrl\":\"http://static-t.kuaidaoapp.com/brand/esy5PmwTJX.jpg\",\"sourceFrom\":\"\",\"linkUrl\":\"\",\"title\":\"火爆02标题火爆02标题火爆02标题火爆\",\"imgDesc\":\"火爆02描述火爆02描述火爆02描述火爆02描述火爆02描述火爆02描述火爆02描述火爆0\",\"isShow\":null},{\"name\":\"火爆044444444444444444\",\"imgUrl\":\"http://static-t.kuaidaoapp.com/brand/mxcZbGYFXd.jpg\",\"sourceFrom\":null,\"linkUrl\":\"\",\"title\":\"但是割发代首还房贷还房贷是恢复大师发到手\",\"imgDesc\":\"还房贷到访数还房贷好丹非素军多付军或付过多军木付过多军或过付过过过过过过过过过过过过过过过\",\"isShow\":null},{\"name\":\"火爆03\",\"imgUrl\":\"http://static-t.kuaidaoapp.com/brand/Rd6BhMpJYH.jpg\",\"sourceFrom\":null,\"linkUrl\":\"\",\"title\":\"火爆03标题\",\"imgDesc\":\"火爆03描述\",\"isShow\":null},{\"name\":\"火爆01啊\",\"imgUrl\":\"http://static-t.kuaidaoapp.com/brand/WbKM5nx6hG.jpg\",\"sourceFrom\":\"\",\"linkUrl\":\"\",\"title\":\"火爆01标题啊\",\"imgDesc\":\"火爆01描述啊\",\"isShow\":null}],\"video\":[{\"name\":\"好看看就返回德生科技啊哈了回访\",\"videoUrl\":\"http://vodukbqznto.vod.126.net/vodukbqznto/070cca2e-446d-4f09-8e43-6d4f9707512c.mp4\",\"coverdUrl\":\"http://kuaidao-dev2.oss-cn-beijing.aliyuncs.com/brand/z3KtcTifPK.jpg\",\"size\":7679297,\"duration\":120,\"vid\":\"3486918085\",\"isVideo\":true},{\"name\":\"测试割发代首广东佛山\",\"videoUrl\":\"http://vodukbqznto.vod.126.net/vodukbqznto/e3434058-e7d5-47b9-8def-9574f8ec5f70.mp4\",\"coverdUrl\":\"http://kuaidao-dev2.oss-cn-beijing.aliyuncs.com/brand/i4s3dDAECF.jpg\",\"size\":680554,\"duration\":9,\"vid\":\"3482676788\"},{\"name\":\"视频哈哈哈\",\"videoUrl\":\"http://vodukbqznto.vod.126.net/vodukbqznto/d0745269-ea6c-4441-848d-020fd7f654b7.mp4\",\"coverdUrl\":\"http://kuaidao-dev2.oss-cn-beijing.aliyuncs.com/brand/jkFFG32GBe.jpg\",\"size\":2911719,\"duration\":19,\"vid\":\"3482678251\"},{\"name\":null,\"videoUrl\":\"http://vodukbqznto.vod.126.net/vodukbqznto/cf37fb08-c0b8-48df-9d92-94730ac68a5f.mp4\",\"coverdUrl\":\"http://vodukbqznto.nosdn.127.net/cf37fb08-c0b8-48df-9d92-94730ac68a5f_24_0_0.jpg\",\"size\":6607883,\"duration\":82,\"vid\":\"3081309089\"}],\"imgUrl\":\"http://static-t.kuaidaoapp.com/brand/XepEHMjdSB.jpg\"}",
+          "scene": null
+        },
+        {
+          "name": "品牌相册最后一页",
+          "pathName": "packageA/pages/swiperDetailsLast/swiperDetailsLast",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "详情页匹配品牌页面",
+          "pathName": "packageA/pages/matchBrand/matchBrand",
+          "query": "brandId=c27e5ea2964c42faa52fb32618f43485",
+          "scene": null
+        },
+        {
+          "name": "通知",
+          "pathName": "pages/notice/notice",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "匹配品牌",
+          "pathName": "packageA/pages/matchBrand/matchBrand",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/animation/animation",
+          "pathName": "pages/animation/animation",
+          "query": "brandId=27c2775814e8427783cbb5e3b1ae13bf",
+          "scene": null
+        },
+        {
+          "name": "我的",
+          "pathName": "pages/myInfo/myInfo",
+          "query": ""
+        },
+        {
+          "name": "个人资料页面",
+          "pathName": "pages/myInformation/myInformation",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "用户反馈",
+          "pathName": "pages/feedback/feedback",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "我的关注",
+          "pathName": "pages/myAttention/myAttention",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "我的足迹",
+          "pathName": "pages/myFootprint/myFootprint",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "我的收藏",
+          "pathName": "pages/myCollection/myCollection",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/search/search",
+          "pathName": "pages/search/search",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "packageA/pages/brandDetail/brandDetail",
+          "pathName": "packageA/pages/brandDetail/brandDetail",
+          "query": "brandId=c51ab57aee6f47e6bf290e4c2cd537d2",
+          "scene": null
+        },
+        {
+          "name": "pages/myInfo/myInfo",
+          "pathName": "pages/myInfo/myInfo",
+          "query": "",
+          "scene": null
+        }
+      ]
+    }
+  }
+}

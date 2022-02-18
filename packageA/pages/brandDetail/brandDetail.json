@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "品牌详情页",
+  "usingComponents": {
+    "ec-canvas": "../../libA/ec-canvas/ec-canvas",
+    "van-divider": "../../../lib/vant-weapp/divider/index"
+  },
+  "navigationStyle":"custom"
+}

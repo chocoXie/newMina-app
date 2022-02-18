@@ -1,0 +1,12 @@
+{
+  "navigationBarTitleText": "足迹",
+  "navigationStyle":"custom",
+  "enablePullDownRefresh": true,
+  "usingComponents": {
+    "public-title": "../../components/publicTitle/publicTitle",
+    "brand-components": "../../components/brandComponents/brandComponents",
+    "public-notdataList": "../../components/publicNotDataList/publicNotDataList",
+    "news-information": "../../components/newsInformation/newsInformation",
+    "news-video": "../../components/newsVideo/newsVideo"
+  }
+}

@@ -1,0 +1,769 @@
+<view class="wrapper" v-cloak id="wrapperBar">
+  <van-overlay :show="modalIsShow" z-index='99' class-name='modal_box'></van-overlay>
+  <!--品牌信息-->
+  <view id="brandInfo">
+    <!-- 顶部轮播图 -->
+    <view class="banner_box">
+      <swiper circular="{{true}}" current="{{swiperItemIndex}}" bindchange="swiperChange" class="swiper" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+        <block wx:for="{{swiperList}}" wx:for-index="index" wx:for-index="indexId" wx:key="indexId">
+          <swiper-item class="swiper-item" wx:if="{{!item.isVideo}}">
+            <image bindtap="goSwiperDetails" data-url="{{item.imgUrl}}" data-type="banner图片" src="{{item.imgUrl}}" />
+          </swiper-item>
+          <swiper-item class="swiper-item" wx:else> 
+            <video play-btn-position="{{'center'}}" muted="false" show-mute-btn="true" poster="{{item.coverdUrl}}" id="myVideo" wx:if="{{isShowAutoplay}}" object-fit="{{'fill'}}" show-center-play-btn="{{false}}" autoplay="{{isShowAutoplay}}" src="{{item.videoUrl}}"></video>
+            <!-- <image wx:else src="{{item.coverdUrl}}" /> -->
+          </swiper-item>
+        </block>
+      </swiper>
+      <view class="back" style="height:{{heightTop}}px" bindtap="backClick">
+        <image wx:if="{{isBackHome}}" src="../../staticA/images/branDetail/whiteBackHome.png" />
+        <image wx:else src="../../staticA/images/branDetail/brandBack.png" />
+      </view>
+      <view class="{{isShowVideo?'videoOrimg':'videoOrimg other'}}">
+        <view bindtap="videoOrimgClick" data-index="1" wx:if="{{isShowVideo}}" class="{{isShowNumber==1?'active':''}}">
+          视频
+        </view>
+        <view bindtap="videoOrimgClick" data-index="2" class="{{isShowNumber==2?'active':''}}">
+          图片
+        </view>
+      </view>
+      <view wx:if="{{isShowVideo}}">
+        <view wx:if="{{swiperItemIndex>0}}" class="videoOrimgNumber">
+          <view>{{swiperItemIndex}}/ {{swiperList.length-1}}</view>
+        </view>
+      </view>
+      <view wx:else class="videoOrimgNumber">
+        <view>{{swiperItemIndex+1}}/ {{swiperList.length}}</view>
+      </view>
+      <view wx:if="{{showWifiModal}}" class="wifiModal">
+        <view>您正在非WIFI环境，播放将消耗你的流量</view>
+        <view bindtap="continuePlaying">继续播放</view>
+      </view>
+    </view>
+    <!-- 优惠倒计时 -->
+    <view class="time_content" wx:if="{{time && swiperAllData.discardActivityDes}}">
+      <view class="timeContentCover" bindtap="getSelectSensorsType" data-typemsg="活动横幅" data-id="37">
+        <button wx:if="{{!token}}" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNum" bindtap="setSensors('hdhf_djs')"></button>
+        <button wx:if="{{token}}" bindtap="goWeChat"></button>
+      </view>
+      <view class="detailCountdownMsg">
+        <image src="https://huiju-new-prod.oss-cn-beijing.aliyuncs.com/weChat_images/myInfo/icon_detailCountdown.png" />
+        <text>{{swiperAllData.discardActivityDes}}</text>
+      </view>
+      <view class="right_content">
+        <view class="times_box">
+          <van-count-down use-slot time="{{ time }}" format="HH:mm:ss" bind:change="countChange">
+            距离结束还剩
+            <text class="times_item">{{differenceDay}}</text>
+            天
+            <text wx:if="{{timeData.hours>=10}}" class="times_item">{{ timeData.hours }}</text>
+            <text wx:else class="times_item">0{{ timeData.hours }}</text>
+            <text class="spot">时</text>
+            <text wx:if="{{timeData.minutes>=10}}" class="times_item">{{ timeData.minutes }}</text>
+            <text wx:else class="times_item">0{{ timeData.minutes }}</text>
+            <text class="spot">分</text>
+            <text wx:if="{{timeData.seconds>=10}}" class="times_item">{{ timeData.seconds }}</text>
+            <text wx:else class="times_item">0{{ timeData.seconds }}</text>
+            <text class="spot">秒</text>
+          </van-count-down>
+        </view>
+      </view>
+    </view>
+    <!-- 品牌基本信息 -->
+    <view class="info {{!time?'other':''}}">
+      <view class="info_title">{{swiperAllData.brandName}}</view>
+      <view class="describe">{{swiperAllData.mainPoint}}</view>
+      <view class="rankingTag_subTag" wx:if="{{swiperAllData.categoryName == '饮品甜品' || swiperAllData.categoryName == '中西快餐' || swiperAllData.categoryName == '特色小吃'}}">
+        <view class="rankingTag" wx:if="{{swiperAllData.ranking}}" data-topType="{{swiperAllData.categoryName}}" bindtap="openRankingWeb">
+          <image wx:if="{{swiperAllData.categoryName == '饮品甜品'}}" src="../../staticA/images/branDetail/xq_cyTag.png"></image>
+          <image wx:if="{{swiperAllData.categoryName == '中西快餐'}}" src="../../staticA/images/branDetail/xq_kcTag.png"></image>
+          <image wx:if="{{swiperAllData.categoryName == '特色小吃'}}" src="../../staticA/images/branDetail/xq_xcTag.png"></image>
+          <view>
+            第{{swiperAllData.ranking}}名
+            <image class="tzphb" src="../../staticA/images/branDetail/tzphb.png"></image>
+          </view>
+        </view>
+        <scroll-view scroll-x class="sub_tag" wx:if="{{swiperAllData.brandTagList.length > 0}}">
+          <text wx:for="{{swiperAllData.brandTagList}}" class="tag_item" wx:key="index" wx:for-item="brandTagListitem">{{brandTagListitem}}</text>
+        </scroll-view>
+      </view>
+      <view class="rankingTag_subTag" wx:else>
+        <scroll-view scroll-x class="sub_tag" wx:if="{{swiperAllData.brandTagList.length > 0}}">
+          <text wx:for="{{swiperAllData.brandTagList}}" wx:key="index" wx:for-item="brandTagListitem" class="tag_item">{{brandTagListitem}}</text>
+        </scroll-view>
+      </view>
+      <view class="follow" bindtap="mineAttention">
+        <image wx:if="{{attention}}" src="../../staticA/images/branDetail/follow2.png" />
+        <image wx:else src="../../staticA/images/branDetail/follow1.png" />
+        <view wx:if="{{attention}}">已关注</view>
+        <view wx:else>关注</view>
+        <button wx:if="{{!token}}" class="wx-auth-button" data-type="2品牌详情页-关注" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNum"></button>
+      </view>
+      <view class="invest_box">
+        <view class="invest_num">
+          {{swiperAllData.joinInvestMin}}~{{swiperAllData.joinInvestMax}}
+        </view>
+        <view class="wan">万</view>
+        <view class="invest_text">/总投资
+          <text wx:if="{{swiperAllData.expenseType == 1}}">(不含房租装修)</text>
+          <text wx:if="{{swiperAllData.expenseType == 2}}">(含房租装修)</text>
+          <text wx:if="{{swiperAllData.expenseType == 3}}">(含装修)</text>
+          <text wx:elese></text>
+        </view>
+        <view class="consult_right" bindtap="getImId" data-id='30'>
+          <view>询底价</view>
+          <image src="../../staticA/images/branDetail/rightIcon.png" />
+          <button wx:if="{{!token}}" class="wx-auth-button" data-type="30品牌详情页-询底价" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNum"></button>
+        </view>
+      </view>
+      <view class="flex_info">
+        <view class="flex_info_item">
+          <image src="../../staticA/images/branDetail/brandIcon1.png" />
+          <view>源地{{swiperAllData.brandPlace}}</view>
+        </view>
+        <view class="flex_info_item">
+          <image src="../../staticA/images/branDetail/brandIcon2.png" />
+          <view>成立{{swiperAllData.brandLimit}}年</view>
+        </view>
+        <view class="flex_info_item">
+          <image src="../../staticA/images/branDetail/brandIcon3.png" />
+          <view>{{swiperAllData.storeNumber}}家门店</view>
+        </view>
+      </view>
+      <view class="attestation_box" bindtap="goBrandinformation">
+        <view class="attestation_content">
+          <image src="../../staticA/images/branDetail/brandIcon4.png" />
+          <view>{{swiperAllData.brandName}}已通过餐盟严选品牌认证</view>
+        </view>
+        <view class="sub_text">
+          <view>详情</view>
+          <image src="../../staticA/images/branDetail/brandIcon5.png" />
+        </view>
+      </view>
+      <view>
+        <!-- <van-divider /> -->
+      </view>
+      <!-- 外卖  -->
+      <view wx:if="{{swiperAllData.takeOutInfoDisplay == 1}}">
+        <view class="takeOut">
+          <view class="takeOut_title">外卖数据概况</view>
+          <view class="takeOut_subTitle">数据来源于网络</view>
+        </view>
+        <view class="comment_box">
+          <view class="comment_title_box">
+            <view class="comment_title">消费者点评</view>
+            <view class="comment_subTitle">COMMENT</view>
+          </view>
+          <view class="number_box">
+            <view class="item">
+              <view>
+                <view wx:if="{{swiperAllData.takeOutStatics.averageScore}}" class="item_numberChild">
+                  {{swiperAllData.takeOutStatics.averageScore}}
+                </view>
+                <view wx:else class="item_numberChild">0.0</view>
+                <view class="item_text">平均评分</view>
+              </view>
+            </view>
+            <view class="item">
+              <view>
+                <view class="item_number">
+                  <view wx:if="{{swiperAllData.takeOutStatics.goodRate}}" class="item_numberChild">
+                    {{swiperAllData.takeOutStatics.goodRate}}
+                  </view>
+                  <view wx:else class="item_numberChild">0.0</view>
+                  <view class="item_number_mark">%</view>
+                  <image src="../../staticA/images/branDetail/brandIcon7.png" />
+                </view>
+                <view class="item_text">平均好评率</view>
+              </view>
+            </view>
+            <view class="item">
+              <view>
+                <view class="item_number">
+                  <view wx:if="{{swiperAllData.takeOutStatics.noGoodRate}}" class="item_numberChild">
+                    {{swiperAllData.takeOutStatics.noGoodRate}}
+                  </view>
+                  <view wx:else class="item_numberChild">0</view>
+                  <view class="item_number_mark">%</view>
+                </view>
+                <view class="item_text">差评率</view>
+              </view>
+            </view>
+          </view>
+          <view class="verticalLine1"></view>
+          <view class="verticalLine2"></view>
+        </view>
+        <view class="order_box">
+          <view class="comment_title_box">
+            <view class="order_title">月销订单数</view>
+            <view class="order_subTitle">ORDER</view>
+          </view>
+          <view class="number_box">
+            <view class="item">
+              <view>
+                <view class="item_number">
+                  <view wx:if="{{swiperAllData.takeOutStatics.poiCommentSum}}" class="item_numberChild">
+                    {{swiperAllData.takeOutStatics.poiCommentSum}}
+                  </view>
+                  <view wx:else class="item_numberChild">0</view>
+                  <view class="item_number_mark">家</view>
+                </view>
+                <view class="item_text">调研门店数</view>
+              </view>
+            </view>
+            <view class="item">
+              <view>
+                <view class="item_number">
+                  <view class="itemTop">≈</view>
+                  <view wx:if="{{swiperAllData.takeOutStatics.poiAverageOrderSum}}" class="item_numberChild">
+                    {{swiperAllData.takeOutStatics.poiAverageOrderSum}}
+                  </view>
+                  <view wx:else class="item_numberChild">0</view>
+                  <view class="item_number_mark">单</view>
+                </view>
+                <view class="item_text">单店平均月销</view>
+              </view>
+            </view>
+            <view class="item">
+              <view>
+                <view class="item_number">
+                  <view class="itemTop">≈</view>
+                  <view wx:if="{{swiperAllData.takeOutStatics.poiAverageFund}}" class="item_numberChild">
+                    {{swiperAllData.takeOutStatics.poiAverageFund}}
+                  </view>
+                  <view wx:else class="item_numberChild">0</view>
+                  <view class="item_number_mark">万</view>
+                  <image src="../../staticA/images/branDetail/brandIcon8.png" />
+                </view>
+                <view class="item_text">单店外卖月流水</view>
+              </view>
+            </view>
+          </view>
+          <view class="verticalLine1"></view>
+          <view class="verticalLine2"></view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <!--品牌提问-->
+  <view class="line"></view>
+  <view class="brandQAList">
+    <view class="brandQAListContent" data-item="{{item}}">
+      <image src="../../staticA/images/branDetail/QAlistUser.png" class="tip"/>
+      <view class="checkNum"><text>{{brandQACheckNum}}</text>人想提问</view>
+      <view class="QAListSwiper">
+        <text>提问:</text>
+        <swiper class="swiperMain" autoplay="true" interval="3000" duration="500" circular="true" vertical="true">
+          <swiper-item  wx:for="{{brandQAList}}" wx:key="*this" >
+            <view bindtap="openQAPopup" data-item="{{item}}" class="swiper-item" >{{item.content}}</view>
+          </swiper-item>
+        </swiper>
+      </view>
+      <image src="../../staticA/images/branDetail/icon_QAright.png" class="icon_QAright"/>
+    </view>
+  </view>
+  <view class="brandDetailTab">
+    <view class="line"></view>
+    <!--导航-->
+    <view class="sticky {{isShowTitle?'activeShow':''}}" >
+      <view class="titleView" style="height:{{heightTop}}px;width:100%">
+        <image wx:if="{{isBackHome}}" bindtap="backClick" src="../../staticA/images/branDetail/homeLoginBack.png" />
+        <image wx:else bindtap="backClick" src="../../staticA/images/branDetail/backColor.png" />
+        <view class="title">{{swiperAllData.brandName}}</view>
+      </view>
+      <view class="tabBarBar">
+        <view class="tabBar" bindtap="tableBarClick" wx:for="{{titleList}}" wx:for-index="indexId" wx:key="indexId" data-index="{{item.id}}">
+          <view class="{{item.isActive?'active':'tabBarChild'}}">{{item.name}}</view>
+        </view>
+      </view>
+    </view>
+    <!--品牌详情 招商海报-->
+    <view id="brandDetail" wx:if="{{swiperAllData.joinDetailsType == 2 && swiperAllData.joinDetailsBrandFile!= null}}">
+      <view title="招商海报" class="company_ImgBox">
+        <view class="product_title">品牌详情</view>
+        <view wx:for="{{showImgDetaillist}}" data-imgDetailIndex="{{index}}" wx:key="index">
+          <image bindtap="previewImage" class="companyImgItem" data-itemUrl="{{item.picUrl}}" src="{{item.picUrl}}" mode="widthFix"/>
+        </view>
+        <view wx:if="{{swiperAllData.joinDetailsBrandFile.picList.length>5}}">
+          <view class="imgBox_opera" wx:if="{{imgDetailMore}}"  bindtap="imgDetailOpera" data-operatype="open">
+            查看更多
+            <image src="../../staticA/images/branDetail/icon_openmore.png" />
+          </view>
+          <view class="imgBox_opera" wx:else bindtap="imgDetailOpera" data-operatype="close">
+              收起
+              <image src="../../staticA/images/branDetail/icon_closemore.png" />
+          </view>
+        </view>
+      </view>
+       <view class="line"></view>
+    </view>
+    <!--品牌详情 图文-->
+    <view id="brandDetail" wx:if="{{swiperAllData.joinDetailsType == 1}}">
+      <view title="加盟详情" wx:if="{{swiperAllData.joinDetailModuleList.length>0}}">
+        <view class="company_boxBar" wx:for="{{swiperAllData.joinDetailModuleList}}" wx:for-index="indexId" wx:key="indexId">
+          <view class="company_box">
+            <view class="module_title">{{item.mainName}}</view>
+            <view class="company_module" wx:for="{{item.joinDetailList}}" wx:for-item="itemChild" wx:for-index="indexId2" wx:key="indexId2">
+              <view class="sub_module_title">{{itemChild.childName}}</view>
+              <view class="module_describe">{{itemChild.describe}}</view>
+              <view wx:if="{{itemChild.pictureUrlList.length==3}}" class="multiple_pic">
+                <view class="pic_item" wx:for="{{itemChild.pictureUrlList}}" wx:for-item="itemChildTwo" wx:for-index="indexId3" wx:key="indexId3">
+                  <image src="{{itemChildTwo}}" alt="" />
+                </view>
+              </view>
+              <view wx:else class="single_pic">
+                <image src="{{itemChild.pictureUrlList[0]}}" alt="" />
+              </view>
+            </view>
+            <view wx:if="{{joinDetailsAllData[indexId].joinDetailList.length>2}}">
+              <view class="imgBox_opera" bindtap="joinDetailsOpera" data-operatype="open" data-indexId="{{indexId}}" wx:if="{{item.joinDetailList.length == 2}}">
+                查看更多
+                <image src="../../staticA/images/branDetail/icon_openmore.png" />
+              </view>
+              <view class="imgBox_opera" bindtap="joinDetailsOpera" data-operatype="close" data-indexId="{{indexId}}" wx:else>
+                  收起
+                  <image src="../../staticA/images/branDetail/icon_closemore.png" />
+              </view>
+            </view>
+          </view>
+          <view class="line"></view>
+        </view>
+        <!-- 产品展示 -->
+        <view class="product_box">
+          <view class="product_title">{{swiperAllData.brandName}}产品展示</view>
+          <scroll-view class="swiper-product" scroll-x>
+            <view class="swiper-wrapper">
+              <view class="swiper-slide" wx:for="{{swiperAllData.product}}" wx:for-index="indexId" wx:key="indexId">
+                <view class="product_img" bindtap="goSwiperDetails" data-url="{{item.imgUrl}}" data-type='品牌展示-产品图'>
+                  <image src="{{item.imgUrl}}" alt="" />
+                </view>
+                <view class="product_text">{{item.title}}</view>
+              </view>
+            </view>
+          </scroll-view>
+        </view>
+        <view class="line"></view>
+      </view>
+    </view>
+     <!--门店 -->
+    <view class="distribute" wx:if="{{shopIsDistributed > 0}}">
+      <view class="distribute_title">门店分布情况</view>
+      <view class="map_box">
+        <ec-canvas id="mychart-dom-area" canvas-id="mychart-area" ec="{{ ec }}"></ec-canvas>
+      </view>
+      <view class="map_title">查询我的城市能否开店？</view>
+      <view class="map_input_box">
+        <view wx:if="{{storeCityTxt=='选择开店城市'}}" class="input_text" bindtap="openStoreCity">
+          {{storeCityTxt}}
+        </view>
+        <text wx:else class="input_text other" bindtap="openStoreCity">{{storeCityTxt}}</text>
+        <view class="map_btn" bindtap="nowSubmit">立即查询</view>
+        <button wx:if="{{!token}}" class="wx-auth-button" data-type="31品牌详情页-查询开店城市" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNum"></button>
+      </view>
+    </view>
+    <view class="line" wx:if="{{shopIsDistributed > 0}}"></view>
+      <!--成功案例-->
+      <view title="成功案例" wx:if="{{swiperAllData.brandSuccessCaseList.length>0}}" id="successCases">
+        <view class="success_box">
+          <view class="success_title">成功案例</view>
+          <view wx:if="{{item.type==1}}" wx:for="{{swiperAllData.brandSuccessCaseList}}" wx:for-index="indexId" wx:key="indexId">
+            <view class="success_title_box">
+              <!-- <i class="success_head">
+                              <image src="{{item.coverImgUrl}}" alt="" />
+                          </i> -->
+              <view class="interview">{{item.videoName}}</view>
+              <view wx:if="{{item.city}}" class="title_sub">{{item.city}}店</view>
+            </view>
+            <view class="video_box">
+              <!-- <image src="{{item.coverImgUrl}}" /> -->
+              <!-- <video play-btn-position="{{'bottom'}}" poster="{{item.coverImgUrl}}" controls="{{true}}"  object-fit="{{'fill'}}" show-center-play-btn="{{false}}" autoplay="{{false}}" src="{{item.videoUrl}}"></video> -->
+              <video play-btn-position="{{'center'}}" bindfullscreenchange="videoScreenChange" bindplay="videoPlayOne" poster="{{item.coverImgUrl}}" object-fit="{{'fill'}}" show-center-play-btn="{{true}}" autoplay="{{false}}" src="{{item.videoUrl}}"></video>
+              <view class="start_btn"></view>
+            </view>
+            <view class="dottedLine"></view>
+          </view>
+          <view class="swiper_box">
+            <scroll-view scroll-x class="swiper-success">
+              <view class="swiper-wrapper">
+                <view class="swiper-slide" bindtap="goSuccessCase" wx:if="{{item.type==0}}" data-flag='{{0}}' wx:for="{{swiperAllData.brandSuccessCaseList}}" wx:for-index="indexId" wx:key="indexId" data-id="{{item.id}}" data-type="successCase">
+                  <view class="success_img">
+                    <image src="{{item.coverImgUrl}}" alt="" />
+                  </view>
+                  <view class="success_text">{{item.caseDesc}}</view>
+                  <view class="success_info">
+                    <view class="success_head_box">
+                      <i class="head_img">
+                        <image src="{{item.headUrl}}" alt="" />
+                      </i>
+                      <view class="head_text">{{item.founderName}}</view>
+                    </view>
+                    <view class="success_local">
+                      <image src="../../staticA/images/branDetail/brandIcon9.png" alt="" />
+                      <view class="local_text">{{item.city}}</view>
+                    </view>
+                  </view>
+                </view>
+              </view>
+            </scroll-view>
+          </view>
+        </view>
+      </view>
+      <view class="line" wx:if="{{swiperAllData.brandSuccessCaseList.length>0}}"></view>
+    <view title="品牌动态" wx:if="{{swiperAllData.brandDynamicList.length>0}}" id="brandNews">
+      <view class="brand_dynamics">
+        <view class="brand_title">品牌动态</view>
+        <view class="brand_item" bindtap="goSuccessCase" wx:for="{{swiperAllData.brandDynamicList}}" wx:for-index="indexId" wx:key="indexId" wx:if="{{item.type==0}}" data-informationId='{{item.informationId}}' data-flag='{{item.informationFlag}}' data-id="{{item.id}}" data-type="brandNews">
+          <view class="brand_item_box">
+            <view class="brand_img">
+              <image src="{{item.coverImgUrl}}" alt="" />
+            </view>
+            <view class="brand_info">
+              <view class="sub_title">{{item.title}}</view>
+              <view class="sub_tags">
+                <view class="tag_item">
+                  <wxs module="m2">
+                                    var getMax = function(array) {
+                                        var newArray=array.split(',')
+                                        return newArray
+                                    }
+                                    module.exports.getMax = getMax;
+                                </wxs>
+                  <scroll-view scroll-x class="tag_item_tag">
+                    <text wx:for="{{m2.getMax(item.tag)}}" wx:for-item="itemChild" wx:key="index">{{itemChild}}</text>
+                    <!-- <text wx:if="{{itemChild}}" wx:for="{{m2.getMax(item.tag)}}" wx:for-item="itemChild" wx:key="index">
+                      {{itemChild}}
+                    </text> -->
+                  </scroll-view>
+                </view>
+              </view>
+              <view class="brand_time_box">
+                <image class="brand_time" src="../../staticA/images/branDetail/timeIcon.png" alt="" />
+                <view>{{item.createTimeStr}}</view>
+              </view>
+            </view>
+          </view>
+          <view hidden='{{indexId==swiperAllData.brandDynamicList.length-1?true:false}}'>
+            <van-divider />
+          </view>
+        </view>
+        <view class="interview_box" wx:for="{{swiperAllData.brandDynamicList}}" wx:for-index="indexId" wx:key="indexId" wx:if="{{item.type==1}}">
+          <view class="interview_title_box">
+            <view class="interview_text">{{item.title}}</view>
+            <image src="../../staticA/images/branDetail/brandIcon10.png" alt="" />
+          </view>
+          <view class="video_box">
+            <!-- <image src="{{item.coverImgUrl}}" /> -->
+            <!-- <video play-btn-position="{{'bottom'}}" poster="{{item.coverImgUrl}}" controls="{{true}}"  object-fit="{{'fill'}}" show-center-play-btn="{{false}}" autoplay="{{false}}" src="{{item.videoUrl}}"></video> -->
+            <video play-btn-position="{{'center'}}" bindfullscreenchange="videoScreenChange" bindplay="videoPlayTwo" poster="{{item.coverImgUrl}}" object-fit="{{'fill'}}" show-center-play-btn="{{true}}" autoplay="{{false}}" src="{{item.videoUrl}}"></video>
+            <!-- <view class="start_btn"></view> -->
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="line" wx:if="{{swiperAllData.brandDynamicList.length>0}}"></view>
+    <view class="interest_boxBar" wx:if="{{showInterestModule}}">
+      <view class="interest_box">
+        <view class="interest_title">您对"{{swiperAllData.brandName}}"感兴趣吗？</view>
+        <view class="interest_sub_title">确认您的兴趣，为您推荐更合适的品牌</view>
+        <view class="interest_btn_box">
+          <view class="interest_btn" bindtap="noInterested">不感兴趣</view>
+          <view class="interest_btn_no" bindtap="submitInterested" data-id="1">
+            <text>感兴趣</text>
+            <button wx:if="{{!token}}" data-type="33品牌详情页-感兴趣" class="wx-auth-button" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNum"></button>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view title="相似推荐" id="similarRecommendation">
+      <view class="recommend_box">
+        <view class="recommend_info">
+          <view class="recommend_title">相似推荐</view>
+          <view class="recommend_brand">
+            <view bindtap="clickBrand_item" class="brand_item" wx:for="{{swiperAllData.likeBrandList}}" wx:for-index="indexId" wx:key="indexId" data-item="{{item}}" data-id="{{item.brandId}}">
+              <view class="brand_img">
+                <image src="{{item.img.imgUrl}}" alt="" />
+              </view>
+              <view class="brand_title">{{item.brandName}}</view>
+              <view class="brand_money">
+                <view>投资总额：</view>
+                <view class="brand_num">{{item.joinInvestMin}}～{{item.joinInvestMax}}万</view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="line"></view>
+    <view title="帮我选品" id="favoriteProduct">
+      <view class="favoriteProductMain">
+        <text>没有找到心仪的品牌？</text>
+        <text>专业顾问在线推荐，帮您提供最适合的品牌</text>
+        <view bindtap="getSelectSensorsType" data-typemsg="帮我选品" data-id="35">
+          <button wx:if="{{!token}}" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNum">
+            帮我选品
+          </button>
+          <button wx:if="{{token}}" bindtap="goWeChat">帮我选品</button>
+        </view>
+      </view>
+    </view>
+  </view>
+  <!-- 页脚 -->
+  <view class="page_footer">
+    <view class="focus_box" bindtap="matchBrandClick">
+      <button wx:if="{{!token}}" class="wx-auth-button" data-type="25品牌详情页-匹配品牌" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNum"></button>
+      <image src="../../staticA/images/branDetail/brandIcon11.png" alt="" />
+      <view>帮我选</view>
+    </view>
+    <view class="focus_box" bindtap="getPhone">
+      <image src="../../staticA/images/branDetail/icon_brandPhone.png" alt="" />
+      <view>电话</view>
+    </view>
+    <view class="focus_btn">
+      <view class="btn reservePriceBtn" bindtap="openReservePrice">获取底价</view>
+      <view class="consulting btn consult-online" bindtap="getImId" data-id='26'>
+        在线咨询
+        <button wx:if="{{!token}}" class="wx-auth-button" data-type="26品牌详情页-底部在线咨询" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNum"></button>
+      </view>
+    </view>
+  </view>
+  <!-- 不感兴趣弹框 -->
+  <view class="uninterested">
+    <van-popup bindtouchstart="_touchstart" catchtouchmove="_touchmove" bindtouchend="_touchend" show="{{ isShowUninterestedPop }}" close-on-click-overlay="{{false}}" round>
+      <view class="content">
+        <view>
+          <view>您不感兴趣的原因？</view>
+          <image bindtap="uninterestedClose" src="../../staticA/images/branDetail/closeIcon.png" />
+        </view>
+        <view>填写您不感兴趣的原因</view>
+        <view>方便顾问为您推荐更合适的品牌</view>
+        <view>
+          <wxs module="m1">
+                        var getMax = function(array,type) {
+                            if(array.indexOf(type)>-1){
+                                return true
+                            }
+                            
+                        }
+                        module.exports.getMax = getMax;
+                    </wxs>
+          <view class="{{m1.getMax(reasonActive,1)?'active':''}}" bindtap="reasonClick" data-index="1">
+            加盟费用高
+          </view>
+          <view class="{{m1.getMax(reasonActive,2)?'active':''}}" bindtap="reasonClick" data-index="2">
+            扶持政策少
+          </view>
+          <view class="{{m1.getMax(reasonActive,3)?'active':''}}" bindtap="reasonClick" data-index="3">
+            产品类少
+          </view>
+        </view>
+        <view>
+          <van-field show-word-limit maxlength='25' value="{{inputInterested}}" placeholder-style="color:#B2B2B2;font-size: 22rpx;" placeholder="其它原因" border="{{ false }}" bind:change="interestedChange" />
+        </view>
+        <view bindtap="submitInterested" data-id="0">确定</view>
+      </view>
+    </van-popup>
+  </view>
+  <!-- toast弹框 -->
+  <van-toast id="van-toast" />
+  <!-- <page-meta page-style="{{ isShowUninterestedPop ? 'overflow: hidden;' : '' }}" /> -->
+  <!-- 强登录 show="{{ strongLogin }}" -->
+  <van-popup show="{{ strongLogin }}" bindtouchstart="_touchstart" catchtouchmove="_touchmove" bindtouchend="_touchend" position="bottom" round bind:close="onClose">
+    <view class="strongLoginClass">
+      <text class="txt">
+        一键登录
+        <br />
+        咨询专业顾问，免费测算投资底价
+      </text>
+      <image class="close" bindtap="closeStoreCity" src="../../staticA/images/branDetail/closeIcon.png" />
+      <view class="authorization">
+        <!-- <button class="wx-login-btn" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber"> -->
+        <button class="wx-login-btn" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNum">
+          <image class="wxlogo" mode="aspectFit" src="../../../static/images/wxlogo.png"></image>
+          微信授权登录
+        </button>
+      </view>
+      <view class="bottomTxt">
+        登录即代表同意【餐盟严选】的
+        <b bindtap="userAgreement">用户协议、</b>
+        <b bindtap="privacyPolicy">隐私政策</b>
+      </view>
+    </view>
+  </van-popup>
+  <!-- 预测弹窗 -->
+  <van-popup bind:close="forecastClose" round overlay="{{false}}" position="bottom" show="{{forecastSta}}" bindtouchstart="_touchstart" catchtouchmove="return" bindtouchend="_touchend">
+    <view class="forecast-m ">
+      <view class="close" bindtap="forecastClose"><image src="../../staticA/images/branDetail/closeIcon.png" /></view>
+      <view class="imgs-m">
+        <image src="../../../static/images/forecast-img.png" width="100%" />
+      </view>
+      <view class="title">我的城市开店需要多少钱？</view>
+      <view class="cent-text">咨询专业顾问免费测算投资底价</view>
+      <view class="forecast-but" bindtap="getImId" data-id='31' data-type="马上测算">
+        马上测算
+        <button wx:if="{{!token}}" class="wx-auth-button" data-type="36品牌详情页-马上测算" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNum"></button>
+      </view>
+    </view>
+  </van-popup>
+   <!-- 选择开店城市 -->
+  <van-popup bindtouchstart="_touchstart" catchtouchmove="_touchmove" bindtouchend="_touchend" show="{{ isShowStoreCity }}" position="bottom" round bind:close="onClose">
+    <view class="storeCity">
+      <van-picker bind:confirm="confirmClick" bind:cancel="cancelClick" value-key="name" show-toolbar="{{true}}" title="{{'选择城市'}}" columns="{{ areaList }}" bind:change="onChange" />
+    </view>
+  </van-popup>
+  <!-- 开店城市结果弹框 --> 
+  <view class="storeCityResult">
+    <van-popup bindtouchstart="_touchstart" catchtouchmove="return" bindtouchend="_touchend" show="{{ isShowStoreCityResult }}" close-on-click-overlay="{{false}}" round>
+      <view wx:if="{{storeCityData.likeBrandList.length>0}}" class="content">
+        <view class="topTitle">
+          <view>开店城市查询结果</view>
+          <image class="close" bindtap="closeStoreCity" src="../../staticA/images/branDetail/closeIcon.png" />
+        </view>
+        <view class="noData">
+          <view>
+            <view class="imageTop">
+              <image class="imgOne" src="../../staticA/images/branDetail/cityIcon.png" />
+              您选择的开店城市
+            </view>
+            <text>\r\n</text>
+            不符合{{swiperAllData.brandName}}的招商区域
+          </view>
+        </view>
+        <view class="fitmeBrand">
+          <view class="title">适合我的品牌</view>
+          <view class="list">
+            <view wx:for="{{storeCityData.likeBrandList}}" wx:key="index" bindtap="clickBrandMatching" data-item="{{item}}" data-id="{{item.brandId}}">
+              <image src="{{item.img.imgUrl}}" />
+              <text>{{item.brandName}}</text>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view wx:else class="content">
+        <view class="topTitle">
+          <image class="imageOne" src="http://huiju-new-prod.oss-cn-beijing.aliyuncs.com/weChat_images/noCityBrand.png" />
+          <image class="closeTwo" bindtap="closeStoreCity" src="../../staticA/images/branDetail/closeIcon.png" />
+        </view>
+        <view class="hasData">
+          目前该城市已有
+          <b>{{storeCityData.alreadyJoinNumber}}家</b>
+          门店
+        </view>
+        <view class="noData">
+          <view>
+            <view class="imageTop">
+              <image class="imgOne" src="../../staticA/images/branDetail/cityIcon.png" />
+              您选择的开店城市
+            </view>
+            <text>\r\n</text>
+            符合{{swiperAllData.brandName}}的招商区域
+          </view>
+        </view>
+        <view class="contactConsultant" bindtap="getImId" data-id="31">联系顾问获取详细开方案</view>
+      </view>
+    </van-popup>
+  </view>
+  <!-- 品牌提问弹窗 -->
+  <van-popup class="QAPopup" show="{{ showQAPopup}}" bind:close="closeQAPopup" round position="bottom" bindtouchstart="_touchstart" catchtouchmove="return" bindtouchend="_touchend">
+    <view class="QAPopupMain popupMainCommon01" style="height:{{token?'880rpx':'1024rpx'}}">
+      <view class="box" style="height:{{token?'852rpx':'996rpx'}}">
+        <image src="../../staticA/images/branDetail/icon_proupClose.png" class="icon_proupClose" bindtap="closeQAPopup"/>
+        <view class="title">我要提问</view>
+        <view class="popupTitle">我们已为96%的用户解答了疑问</view>
+        <view class="brandInfo">
+          <image src="{{swiperAllData.listPicUrl}}" class="brandLogo"/>
+          <view>
+            <text>{{swiperAllData.brandName}}</text>
+            <text>投资金额：{{swiperAllData.joinInvestMin}}-{{swiperAllData.joinInvestMax}}万</text>
+          </view>
+        </view>
+        <view wx:if="{{token}}" class="popupMainForm" >
+          <view class="iptitem" bindtap="checkQA" data-qaformproupmsg="{{QAFormProupMsg}}">
+            <label class="label-2-text"><text>我要提问</text></label>
+            <input class="weui-input" type="text" resa value="{{QAFormProupMsg.content}}" disabled="true"/>
+            <image src="../../staticA/images/branDetail/icon_checkQA.png" class="icon_checkQA"/>
+          </view>
+          <view class="iptitem">
+            <label class="label-2-text"><text>联系电话</text></label>
+            <input class="weui-input" type="number" placeholder="{{userPhone}}" placeholder-style="color: #CCCCCC;" disabled="true"/>
+          </view>
+            <view class="popupFormSubmit" bindtap="popupFormSubmit" data-brandinfo="{{swiperAllData}}" data-qamsg="{{QAFormProupMsg.content}}">立即提问</view>
+        </view>
+        <view wx:else class="popupMainForm">
+            <view class="iptitem" bindtap="checkQA" data-qaformproupmsg="{{QAFormProupMsg}}">
+              <label class="label-2-text"><text>我要提问</text></label>
+              <input class="weui-input" type="text" resa value="{{QAFormProupMsg.content}}" disabled="true"/>
+              <image src="../../staticA/images/branDetail/icon_checkQA.png" class="icon_checkQA"/>
+            </view>
+            <view class="iptitem">
+              <label class="label-2-text"><text>联系电话</text></label>
+              <input type="number" value="{{ userPhone }}"  placeholder="请输入手机号" placeholder-style="color: #CCCCCC;" maxlength="11" data-type="twSwiper"	bindblur="onChangePhone" bindfocus="propFormPhoneFocus"/>
+            </view>
+            <view class="iptitem">
+              <label class="label-2-text"><text>验证码</text></label>
+              <input type="number" value="{{phoneSMS}}" placeholder="请输入验证码" placeholder-style="color: #CCCCCC;" maxlength="6"	bindblur="onChangeSms"/>
+              <text wx:if="{{isSendSms}}" slot="button" class="txt" bindtap="smsSend" data-type="twSwiper">获取验证码</text>
+              <text wx:else slot="button" class="txt txtColor" >重新获取（{{countNumber}}s）</text>
+            </view>
+            <view class="popupFormSubmit" bindtap="popupFormSubmit" data-brandinfo="{{swiperAllData}}" data-qamsg="{{QAFormProupMsg.content}}" data-type="checkcode" >立即提问</view>
+        </view>
+        <view class="popupFormBHSM" >
+          <image bindtap="popupFormBHSM" data-type="twSwiper" wx:if="{{popupBHSMCheck}}" src="https://huiju-new-prod.oss-cn-beijing.aliyuncs.com/weChat_images/h5_icon_formCheck.png" />
+          <image bindtap="popupFormBHSM" data-type="twSwiper" wx:else src="https://huiju-new-prod.oss-cn-beijing.aliyuncs.com/weChat_images/h5_icon_formNoCheck.png" />
+          <text bindtap="popupFormBHSM" data-type="twSwiper">已阅读并同意</text>
+          <text bindtap="secretcardPage" data-type="twSwiper">《个人信息保护声明》</text>
+        </view>
+      </view>
+    </view>
+  </van-popup>
+  <!--品牌底价弹窗-->
+  <van-popup class="ReservePriceProup" show="{{showReservePriceProup}}" bind:close="closeReservePriceProup" round position="bottom" bindtouchstart="_touchstart" catchtouchmove="return" bindtouchend="_touchend">
+    <view class="ReservePriceProupMain popupMainCommon01" style="height:{{token?'870rpx':'988rpx'}}">
+      <view class="box" style="height:{{token?'842rpx':'960rpx'}}">
+        <image src="../../staticA/images/branDetail/icon_proupClose.png" class="icon_proupClose" bindtap="closeReservePriceProup"/>
+        <view class="title">获取底价</view>
+        <view class="popupTitle">86%的人通过询价获得优惠</view>
+        <view class="reserveSwiper">
+          <image src="../../staticA/images/branDetail/icon_laba.png" />
+          <swiper class="reserveSwiperMain" autoplay="true" interval="2000" duration="500" circular="true" vertical="true">
+            <swiper-item wx:for="{{ReserveList}}" wx:key="*this">
+              <view dats-item="item">{{item}}</view>
+            </swiper-item>
+          </swiper>
+        </view>
+        <view class="brandInfo">
+          <image src="{{swiperAllData.listPicUrl}}" class="brandLogo"/>
+          <view>
+            <text>{{swiperAllData.brandName}}</text>
+            <text>投资金额：{{swiperAllData.joinInvestMin}}-{{swiperAllData.joinInvestMax}}万</text>
+          </view>
+        </view>
+        <view wx:if="{{token}}" class="popupMainForm" >
+          <view class="iptitem">
+            <label class="label-2-text"><text>联系电话</text></label>
+            <input class="weui-input" type="number" placeholder="{{userPhone}}" placeholder-style="color: #CCCCCC;" disabled="true"/>
+          </view>
+            <view class="popupFormSubmit" bindtap="popupFormSubmit" data-brandinfo="{{swiperAllData}}" data-laizi="hqdj" data-qamsg="{{QAFormProupMsg.content}}" >询价领取加盟红包</view>
+        </view>
+        <view wx:else class="popupMainForm">
+            <view class="iptitem">
+              <label class="label-2-text"><text>联系电话</text></label>
+              <input type="number" value="{{ userPhone }}"  placeholder="请输入手机号" placeholder-style="color: #CCCCCC;" maxlength="11" data-type="hqdj" bindblur="onChangePhone" bindfocus="propFormPhoneFocus"/>
+            </view>
+            <view class="iptitem">
+              <label class="label-2-text"><text>验证码</text></label>
+              <input type="number" value="{{phoneSMS}}" placeholder="请输入验证码" placeholder-style="color: #CCCCCC;" maxlength="6"	bindblur="onChangeSms"/>
+              <text wx:if="{{isSendSms}}" slot="button" class="txt" bindtap="smsSend" data-type="hqdj">获取验证码</text>
+              <text wx:else slot="button" class="txt txtColor" >重新获取（{{countNumber}}s）</text>
+            </view>
+            <view class="popupFormSubmit" bindtap="popupFormSubmit" data-brandinfo="{{swiperAllData}}" data-laizi="hqdj" data-qamsg="{{QAFormProupMsg.content}}" data-type="checkcode">询价领取加盟红包</view>
+        </view>
+        <view class="popupFormBHSM">
+          <image bindtap="popupFormBHSM" data-type="hqdj" wx:if="{{popupBHSMCheck}}" src="https://huiju-new-prod.oss-cn-beijing.aliyuncs.com/weChat_images/h5_icon_formCheck.png" />
+          <image bindtap="popupFormBHSM" data-type="hqdj" wx:else src="https://huiju-new-prod.oss-cn-beijing.aliyuncs.com/weChat_images/h5_icon_formNoCheck.png" />
+          <text bindtap="popupFormBHSM" data-type="hqdj">已阅读并同意</text>
+          <text bindtap="secretcardPage" data-type="hqdj" >《个人信息保护声明》</text>
+        </view>
+      </view>
+    </view>
+  </van-popup>
+</view>

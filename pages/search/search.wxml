@@ -1,0 +1,128 @@
+<view class="searchBar">
+  <!-- 顶部导航 -->
+  <!-- 搜索模块 -->
+  <view class="searchTitle">
+    <!-- <view class="top" style="height:{{heightTop-4}}px">
+      <view class="cancelBackBox" bindtap="cancelBack" >
+        <image src="../../static/images/search/leftTopBack.png" />
+      </view>
+      <text>搜索</text>
+    </view> -->
+    <view style="position:sticky; top: 0;z-index: 10;">
+        <public-title titleName="搜索" type="search"></public-title>
+    </view>
+    <view class="bot">
+      <view class="botLeft" wx:if="{{!isShowInputTag}}">
+        <van-field focus="{{inputFocus}}" value="{{ inputValue }}" placeholder="请输入关键字搜索" bind:change="inputChange" bind:focus="inputFocus" bind:blur="inputBlur" custom-style="height:72rpx;padding:0;border:none" use-left-icon-slot>
+          <image slot="left-icon" class="searchIcon" src="../../static/images/searchIcon.png"></image>
+          <view slot="left-icon" class="removeIcon" bindtap="removeInput">
+            <van-icon wx:if="{{isShowRemove}}" name="cross" />
+          </view>
+        </van-field>
+      </view>
+      <view wx:else class="botLeftBottom" bindtap="getFocus">
+        <image class="searchIcon" src="../../static/images/searchIcon.png"></image>
+        <view class="removeIcon" bindtap="removeInput">
+          <van-icon wx:if="{{isShowRemove}}" name="cross" />
+        </view>
+        <view wx:if="{{isShowInputTag}}" class="inputTag">
+          <text>{{inputValue}}</text>
+          <van-icon bindtap="removeInputTag" name="cross" />
+        </view>
+      </view>
+      <view class="botRight" bindtap="cancelFun">取消</view>
+    </view>
+  </view>
+  <view wx:if="{{searchBrand.length==0}}">
+    <!-- 搜索结果为空 -->
+    <view class="noData" wx:if="{{inputValue && searchRequest && searchResult == 2}}">
+      <image src="http://huiju-new-prod.oss-cn-beijing.aliyuncs.com/weChat_images/noDataList.png" />
+      <view class="contenttxt">
+        暂无关于
+        <b>{{inputValue}}</b>
+        的搜索结果哦～
+      </view>
+      <view class="noDataBot">
+        <image src="http://huiju-new-prod.oss-cn-beijing.aliyuncs.com/weChat_images/searchWeChat.png" />
+        <view class="noDataBotCen">
+          <text>想要开店赚钱</text>
+          <text>联系您的专属顾问 为您定制开店方案</text>
+        </view>
+        <view class="noDataBot-but">
+          <view class="noDataBotRight" bindtap="goWeChat">在线聊</view>
+          <button wx:if="{{!token}}" class="wx-auth-button" data-type="14搜索-加盟顾问" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNum"></button>
+        </view>
+      </view>
+    </view>
+    <!-- 搜索结果 -->
+    <view class="yesData" wx:if="{{inputValue && searchRequest && searchResult == 1}}" style="margin-top:{{yesDataTop}}px">
+      <view wx:for="{{searchData}}" wx:key="*this" style="margin-bottom:60rpx">
+        <brand-components source="搜索" itemData="{{item}}"></brand-components>
+      </view>
+    </view>
+    <!-- 为你推荐 -->
+    <view wx:if="{{searchRequest && searchData.length<6}}">
+      <recommend-you recommendData="{{recommendData}}"></recommend-you>
+    </view>
+    <!-- 猜你喜欢  style="padding-top:{{heightTop+35}}px" -->
+    <view class="guessYouLike {{inputValue?'guessYouLikeOther':''}}"  wx:if="{{!searchRequest}}">
+      <view class="title">猜你喜欢</view>
+      <ul>
+        <li bindtap="guessYouClick" wx:for="{{guessYouData}}" wx:key="*this" data-item="{{item}}" data-id="{{item.brandId}}">
+          {{item.brandName}}
+        </li>
+      </ul>
+    </view>
+    <!-- 大家都在搜 -->
+    <view class="allSearch" wx:if="{{!searchRequest}}">
+      <view class="title">大家都在搜</view>
+      <ul>
+        <li wx:for="{{everyoneSearch}}" wx:key="*this" data-item="{{item}}" data-id="{{item.brandId}}" bindtap="allSearchFun">
+          <view class="left">
+            <!-- <image wx:if="{{index==0}}" src="../../static/images/search/oneIcon.png" />
+            <image wx:if="{{index==1}}" src="../../static/images/search/twoIcon.png" />
+            <image wx:if="{{index==2}}" src="../../static/images/search/threeIcon.png" /> -->
+            <!-- <text wx:if="{{index==3}}">{{4}}</text> -->
+            <text>{{index+1}}</text>
+          </view>
+          <view class="cen">
+          <image class="cenOne" src="{{item.listPicUrl}}" />
+            <!-- <image wx:if="{{index==0}}" class="cenOne" src="{{item.listPicUrl}}" />
+            <image wx:if="{{index==1}}" class="cenTwo" src="{{item.listPicUrl}}" />
+            <image wx:if="{{index==2}}" class="cenThree" src="{{item.listPicUrl}}" />
+            <image wx:if="{{index==3}}" class="cenFour" src="{{item.listPicUrl}}" />
+            <image wx:if="{{index==4}}" class="cenFive" src="{{item.listPicUrl}}" /> -->
+          </view>
+          <view class="bot">
+            <view class="botTop">{{item.brandName}}</view>
+            <view class="botBot">
+              加盟费用：
+              <b class="money">{{item.franchiseFeeName}}万</b>
+            </view>
+          </view>
+        </li>
+      </ul>
+    </view>
+    <!-- 历史记录 -->
+    <view class="searchHistory" wx:if="{{!searchRequest}}">
+      <view class="title">
+        <text>历史记录</text>
+        <image bindtap="clearHistory" slot="left-icon" class="searchIcon" src="../../static/images/search/remove.png"></image>
+      </view>
+      <ul>
+        <li bindtap="searchHistoryFun" data-name="{{item}}" wx:for="{{searchHistory}}" wx:key="*this">
+          {{item}}
+        </li>
+      </ul>
+    </view>
+  </view>
+  <view wx:else class="fuzzySearch">
+    <view class="fuzzySearchUl">
+      <view bindtap="clickBrand" data-id="{{allItem}}" wx:for="{{searchBrand}}" wx:key="*this" wx:for-item="allItem">
+        <text wx:for="{{allItem}}" wx:key="*this" class="{{item==inputValueOne?'color':''}}">
+          {{item}}
+        </text>
+      </view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,99 @@
+<view class="wrapper">
+     <view class="header">
+          <view class="top" style="height:{{heightTop}}px">
+               <text>个人中心</text>
+          </view>
+          <view class="avatar-wrapper" wx:if='{{showHeaderType == 2}}'>
+               <button wx:if="{{!token}}" class="wx-auth-button" data-type="5我的-账号" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNum"></button>
+               <view class="avatar-img"  bindtap='goPage'>
+                    <image class="avatar-icon" src="http://huiju-new-prod.oss-cn-beijing.aliyuncs.com/weChat_images/myInfo/defult-avatar.png"></image>
+               </view>
+               <view class="hi-text">Hi，欢迎来到餐盟严选</view>
+               <!-- <view class="login-head-btn" bindtap='goLogin'>登录/注册 </view> -->
+               <view class="login-head-btn" >登录/注册</view>
+          </view>
+          <view class="avatar-wrapper" wx:else bindtap="goMyInformation">
+               <view class="avatar-img">
+                    <image class="avatar-icon" src="{{info.userAvatar?info.userAvatar:'http://huiju-new-prod.oss-cn-beijing.aliyuncs.com/weChat_images/myInfo/defult-avatar.png'}}"></image>
+               </view>
+               <view class="info-box">
+                    <view class="phone-num">{{info.phoneNumber}}</view>
+                    <view class="login-text">Hi，欢迎来到餐盟严选</view>
+               </view>
+               <view class="right-icon"></view>
+          </view>
+     </view>
+     <view class="flex_content">
+      
+          <view class="flex_item" bindtap="goPage" data-url='/pages/myAttention/myAttention'>
+               <!-- <view class="flex_num">{{info.focusNum || 0}}</view> -->
+               <view class="flex_icon"><image src="../../static/weChat_images/icon_myfocus.png" /></view>
+               <view class="flex_text">我的关注</view>
+                <button wx:if="{{!token}}" data-type="7我的-我的关注" class="wx-auth-button" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNum"></button>
+          </view>
+          <view class="flex_item" bindtap="goPage" data-url='/pages/myFootprint/myFootprint'>
+               <!-- <view class="flex_num">{{info.footprintNum || 0}}</view> -->
+               <view class="flex_icon"><image src="../../static/weChat_images/icon_myFootprint.png" /></view>
+               <view class="flex_text">我的足迹</view>
+                <button wx:if="{{!token}}" data-type="9我的-我的足迹" class="wx-auth-button" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNum"></button>
+          </view>
+          <view class="flex_item" bindtap="goPage" data-url='/pages/myCollection/myCollection'>
+               <!-- <view class="flex_num">{{info.collNum || 0}}</view> -->
+                <view class="flex_icon"><image src="../../static/weChat_images/icon_myCollection.png" /></view>
+               <view class="flex_text">我的收藏</view>
+                <button wx:if="{{!token}}" data-type="8我的-我的收藏" class="wx-auth-button" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNum"></button>
+          </view>
+     </view>
+     <!-- <view class="info-banner" bindtap='openWeChat' >
+        <button wx:if="{{!token}}" data-type="40我的-加盟手册" class="wx-auth-button" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNum"></button>
+           <image class="img-banner" src="http://huiju-new-prod.oss-cn-beijing.aliyuncs.com/weChat_images/myInfo/info_banner.png"> </image>
+     </view> -->
+     <view class="info-banner" bindtap='goH5ranking' >
+        <!-- <button wx:if="{{!token}}" data-type="40个人中心-banner" class="wx-auth-button" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNum"></button> -->
+           <image class="img-banner" src="../../static/weChat_images/myInfoRankingBanner.png"> </image>
+     </view>
+     <view class="list-title">
+          我的服务
+     </view>
+     <view class="list-wrapper">
+          <!-- <view class="list-item" bindtap='goPage' data-url='/pages/myCoupon/myCoupon'>
+               <view class="list-icon4" ><image src="../../static/weChat_images/yhq.png" /></view>
+                <button wx:if="{{!token}}" class="wx-auth-button" data-type="我的-优惠券" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNum"></button>
+               <view class="item-text">优惠券</view>
+               <view class="item-right-icon"></view>
+          </view> -->
+          <view class="list-item" bindtap='goBrandEntry'>
+               <view class="list-icon1" ></view>
+               <view class="item-text">品牌入驻</view>
+               <view class="item-right-icon"></view>
+          </view>
+            <view class="list-item" bindtap='goPage' data-url='/pages/feedback/feedback'>
+               <view class="list-icon2" ></view>
+                <button wx:if="{{!token}}" class="wx-auth-button" data-type="23我的-用户反馈" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNum"></button>
+               <view class="item-text">用户反馈</view>
+               <view class="item-right-icon"></view>
+          </view>
+            <view class="list-item" bindtap='goCallPhone'>
+               <view class="list-icon3" ></view>
+               <view class="item-text">客服电话</view>
+               <view class="item-right-icon"></view>
+          </view>
+     </view>
+     <view class="line" wx:if='{{brandList.length}}'></view>
+     <view class="recommend-brand-wrapper" wx:if='{{brandList.length}}'>
+          <view class="recommend-title">
+               猜你喜欢
+          </view>
+          <view class="lists" wx:for="{{brandList}}" wx:key="*this" >
+                <brand-components source="我的-猜你喜欢" itemData="{{item}}"></brand-components>
+                <view class="lists-line"></view>
+          </view>
+          <view class="more" bindtap='goClassificationList'>
+               查看更多
+               <view class="more-icon" >
+                    
+               </view>
+          </view>
+     </view>
+    
+</view>

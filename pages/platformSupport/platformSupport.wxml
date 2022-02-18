@@ -1,0 +1,42 @@
+<view class="platformSupportBar">
+    <image src="http://huiju-new-prod.oss-cn-beijing.aliyuncs.com/weChat_images/platformSupportBar.png" mode="widthFix"></image>
+    <view class="content">
+        <image src="http://huiju-new-prod.oss-cn-beijing.aliyuncs.com/weChat_images/platformSupportBarFlotter.png" mode="widthFix"></image>
+        <view class="contentList">
+            <view class="contentTop">
+                <text>热门品牌排行榜</text>
+                <view class="bigBox"></view>
+                <view class="smallBox"></view>
+            </view>
+            <view class="contentCenBar">
+                <ul class="contentCen">
+                    <li wx:for="{{hotBrandData}}" bindtap="platformSupportClick"  wx:key="*this" data-id="{{item.brandId}}" >
+                        <view class="left">
+                            <image src="{{item.brandLogo}}"></image>
+                        </view>
+                        <view class="right">
+                            <view>{{item.brandName}}</view>
+                            <view>
+                                投资区间
+                                <b>{{item.joinInvestMin}}-{{item.joinInvestMax}}</b>
+                                <i>万</i>
+                            </view>
+                            <view>
+                                加盟费用
+                                <b>{{item.franchiseFeeName}}</b>
+                                <i>万</i>
+                            </view>
+                        </view>
+                        <view wx:if="{{index==0}}" class="rightIcon">TOP 1</view>
+                        <view wx:if="{{index==1}}" class="rightIcon rightIconTwo">TOP 2</view>
+                        <view wx:if="{{index==2}}" class="rightIcon rightIconThree">TOP 3</view>
+                    </li>
+                </ul>
+            </view>
+            <view class="contentbot" bindtap="lookMore">
+                查看更多品牌
+                <image src="../../static/images/rightIcon.png"></image>
+            </view>
+        </view>
+    </view>
+</view>

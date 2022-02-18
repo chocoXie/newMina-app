@@ -1,0 +1,70 @@
+<view class="swiperDetailsBar">
+  <!-- <view class="title" style="height:{{heightTop}}px">
+    <image bindtap="backPage" src="../../staticA/images/branDetail/brandBack.png" />
+    <text>品牌相册</text>
+  </view> -->
+   <!-- 顶部导航 -->
+  <view style="position:sticky; top: 0;z-index: 10;">
+      <public-title titleName="品牌相册" backColor="#000" msgColor="#fff" iconColor="white"></public-title>
+  </view>
+  <view>
+    <view class="tableBar" wx:if="{{!isShowLastImage}}">
+      <text bindtap="tableBarClick" wx:for="{{titleList}}" data-index="{{item.id}}" wx:key="index">
+        <!-- <text wx:if="{{item.value>0}}" class="{{item.isActive?'active':''}}">
+          {{item.name}}({{item.value}})
+        </text> -->
+        <text class="{{item.isActive?'active':''}}">{{item.name}}<text wx:if="{{item.value>0}}">({{item.value}})</text></text>
+      </text>
+    </view>
+    <view class="tableBar" wx:else style="padding-bottom:4rpx">
+      <text>
+        <text style="color:#000">啦啦啦</text>
+      </text>
+    </view>
+    <view class="swiperDetailCenter">
+      <!-- bindanimationfinish="slideEnd" -->
+      <swiper play-btn-position="{{'center'}}" circular="{{false}}" current="{{currentIndex}}" bindchange="swiperChange" class="swiper" autoplay="{{false}}" interval="{{interval}}" duration="{{duration}}">
+        <block wx:for="{{swiperList}}" wx:for-index="index" wx:key="index">
+          <swiper-item class="swiper-item" wx:if="{{!item.videoUrl&&!item.idShowLast}}">
+            <image bindtap="goSwiperDetails" src="{{item.imgUrl}}" />
+          </swiper-item>
+          <swiper-item wx:elif="{{item.idShowLast}}" class="swiper-item">
+            <view class="lastData">
+              <text>想了解该品牌更多信息？</text>
+              <view>
+                <view class="consult-but" bindtap="goWeChat" data-type="图片详情末尾-在线咨询">
+                  <text>在线咨询</text>
+                  <button wx:if="{{!token}}" class="wx-auth-button" data-type="28品牌详情页-相册咨询" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNum"></button>
+                </view>
+                <view class="consult-but" bindtap="makeCall">拨打电话</view>
+              </view>
+            </view>
+          </swiper-item>
+          <swiper-item class="swiper-item" wx:else>
+            <video play-btn-position="{{'center'}}" poster="{{item.coverdUrl}}" id="myVideoTwo" object-fit="{{'fill'}}" show-center-play-btn="{{true}}" autoplay="{{false}}" src="{{item.videoUrl}}"></video>
+          </swiper-item>
+        </block>
+      </swiper>
+    </view>
+    <view class="swiperBottxt" wx:if="{{!isShowLastImage}}">
+      <text>{{swiperList[currentIndex].title}}</text>
+      <text>{{swiperList[currentIndex].imgDesc}}</text>
+      <view class="rightNumber">
+        <text>{{showIndexBottom+1}}</text>
+        /
+        <text>{{showIndexBotList.length}}</text>
+      </view>
+    </view>
+    <view class="footerConsulting" wx:if="{{!isShowLastImage}}">
+      <view class="footerCover">
+        <button wx:if="{{!token}}" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNum"></button>
+        <button wx:if="{{token}}" bindtap="goWeChat"></button>
+      </view>
+      <image src="../../staticA/images/branDetail/questionMark.png" />
+      <text>这个品牌怎么样？几个月能回本</text>
+      <text>|</text>
+      <image src="../../staticA/images/branDetail/consulting.png" />
+      <text data-type="图片详情-在线咨询">咨询</text>
+    </view>
+  </view>
+</view>

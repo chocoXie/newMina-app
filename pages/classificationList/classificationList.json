@@ -1,0 +1,14 @@
+{
+  "navigationBarTitleText": "分类",
+  "navigationStyle":"custom",
+  "enablePullDownRefresh": true,
+  "usingComponents": {
+    "brand-components": "../../components/brandComponents/brandComponents",
+    "public-notdataList": "../../components/publicNotDataList/publicNotDataList",
+    "van-popup": "../../lib/vant-weapp/popup/index",
+    "title-search": "../../components/titleSearch/titleSearch",
+    "home-lists": "../../components/homeLists/homeLists",
+    "van-tab": "../../lib/vant-weapp/tab/index",
+    "van-tabs": "../../lib/vant-weapp/tabs/index"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "navigationBarTitleText": "关注",
+  "navigationStyle":"custom",
+  "enablePullDownRefresh": true,
+  "usingComponents": {
+    "public-title": "../../components/publicTitle/publicTitle",
+    "brand-components": "../../components/brandComponents/brandComponents",
+    "public-notdataList": "../../components/publicNotDataList/publicNotDataList"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "component": true,
+  "navigationStyle":"custom",
+  "usingComponents": {
+    "brand-components": "../../components/brandComponents/brandComponents"
+  }
+}

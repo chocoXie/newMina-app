@@ -1,0 +1,9 @@
+{
+  "navigationStyle":"custom",
+  "usingComponents": {
+    "van-field": "../../lib/vant-weapp/field/index",
+    "van-dialog": "../../lib/vant-weapp/dialog/index",
+    "van-toast": "../../lib/vant-weapp/toast/index",
+    "public-title": "../../components/publicTitle/publicTitle"
+  }
+}

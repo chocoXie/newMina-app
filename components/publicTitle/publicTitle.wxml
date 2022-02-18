@@ -1,0 +1,16 @@
+<view class="containerTitle" style="height:{{heightTop}}px;background-color:{{backColor}}">
+    <view class="myInformationTitle" style="height:{{height}}px">
+        <view class="backHomeIcon {{isSearchPage ?'iconLeft0':''}}" bindtap="cancelBack" wx:if="{{backHome}}">
+            <image wx:if="{{iconColor == 'white'}}" src="../../static/images/search/whiteBackHome.png" />
+            <image wx:else src="../../static/images/search/homeLoginBack.png"/>
+        </view>
+        <view class="backIcon {{isSearchPage ?'iconLeft0':''}}" bindtap="cancelBack" wx:if="{{type == 'selectBrand' && !backHome}}">
+            <image  data-type="selectBrand" src="../../static/images/search/leftTopBack.png"/>
+        </view>
+        <view class="backIcon {{isSearchPage ?'iconLeft0':''}}" bindtap="cancelBack" wx:if="{{type != 'selectBrand' && !backHome}}">
+            <image wx:if="{{iconColor == 'white'}}" src="../../static/images/search/brandBack.png" />
+            <image wx:else src="../../static/images/search/leftTopBack.png"/>
+        </view>
+        <text style="color: {{msgColor? msgColor:'#000'}}">{{titleName}}</text>
+    </view>
+</view> 

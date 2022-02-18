@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "brand-components": "../../components/brandComponents/brandComponents"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "component": true,
+  "usingComponents": {
+    "public-title": "../../../components/publicTitle/publicTitle"
+  },
+  "navigationStyle":"custom"
+}

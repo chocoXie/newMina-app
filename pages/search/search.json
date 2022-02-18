@@ -1,0 +1,11 @@
+{
+  "navigationBarTitleText":"搜索",
+  "navigationStyle":"custom",
+  "usingComponents": {
+    "recommend-you": "../../components/recommendYou/recommendYou",
+    "brand-components": "../../components/brandComponents/brandComponents",
+    "van-field": "../../lib/vant-weapp/field/index",
+    "van-icon": "../../lib/vant-weapp/icon/index",
+    "public-title": "../../components/publicTitle/publicTitle"
+  }
+}

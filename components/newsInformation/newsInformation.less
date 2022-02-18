@@ -1,0 +1,85 @@
+.newsInformationBar {
+  display: flex;
+  // align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding-right: 32rpx;
+
+  .left {
+    margin-right: 23rpx;
+
+    image {
+      display: inline-block;
+      width: 192rpx;
+      height: 192rpx;
+      border-radius: 20rpx;
+    }
+  }
+
+  .right {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-bottom: 10rpx;
+    padding-top: 5rpx;
+
+    .title {
+      font-size: 28rpx;
+      font-family: PingFangSC-Medium, PingFang SC;
+      font-weight: 500;
+      color: #282828;
+
+      word-break: break-all;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+    }
+
+    .tag {
+      display: flex;
+      margin: 20rpx 0 14rpx 0;
+
+      > view {
+        font-size: 24rpx;
+        font-family: PingFangSC-Regular, PingFang SC;
+        font-weight: 400;
+        padding: 4rpx 20rpx 4rpx 20rpx;
+        border-radius: 8rpx;
+        background: rgba(253, 83, 83, 0.09);
+        color: #fd5353;
+        margin-right: 10rpx;
+      }
+      > view:nth-child(1) {
+        background: rgba(253, 83, 83, 0.09);
+        color: #fd5353;
+        margin-right: 10rpx;
+      }
+      > view:nth-child(2) {
+        background: #f7f7f7;
+        color: #979797;
+        margin-right: 10rpx;
+      }
+    }
+
+    .lookInfo {
+      display: flex;
+      align-items: center;
+
+      > image {
+        display: inline-block;
+        width: 24rpx;
+        height: 24rpx;
+        margin-right: 14rpx;
+      }
+
+      > view {
+        font-size: 24rpx;
+        font-family: PingFangSC-Regular, PingFang SC;
+        font-weight: 400;
+        color: #b2b2b2;
+      }
+    }
+  }
+}

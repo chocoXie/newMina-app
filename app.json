@@ -1,0 +1,123 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/classificationList/classificationList",
+    "pages/newsMessage/newsMessage",
+    "pages/lookInfoList/lookInfoList",
+    "pages/myInfo/myInfo",
+    "pages/search/search",
+    "pages/platformSupport/platformSupport",
+    "pages/brandEntry/brandEntry",
+    "pages/customerChat/customerChat",
+    "pages/notice/notice",
+    "pages/webViewList/webView/webView",
+    "pages/webViewList/lookInformdetail/lookInformdetail",
+    "pages/webViewList/brandDetail/brandDetail",
+    "pages/webViewList/lookInfoVideo/lookInfoVideo",
+    "pages/webViewList/userAgreement/userAgreement",
+    "pages/login/login",
+    "pages/animation/animation",
+    "pages/iphoneLogin/iphoneLogin",
+    "pages/myInformation/myInformation",
+    "pages/feedback/feedback",
+    "pages/myAttention/myAttention",
+    "pages/myCollection/myCollection",
+    "pages/myFootprint/myFootprint",
+    "components/newsInformation/newsInformation",
+    "components/newsVideo/newsVideo",
+    "pages/selectBrand/selectBrand"
+  ],
+  "subPackages": [
+    {
+      "root": "packageA",
+      "pages": [
+        "pages/brandDetail/brandDetail",
+        "pages/swiperDetails/swiperDetails",
+        "pages/swiperDetailsLast/swiperDetailsLast",
+        "pages/matchBrand/matchBrand",
+        "pages/brandQAlist/brandQAlist"
+      ]
+    }
+  ],
+  "window": {
+    "navigationBarBackgroundColor": "#FFFFFF",
+    "navigationBarTitleText": "餐盟严选",
+    "enablePullDownRefresh": false,
+    "navigationBarTextStyle": "black",
+    "backgroundColor": "#FFFFFF",
+    "backgroundTextStyle": "dark"
+  },
+  "tabBar": {
+    "backgroundColor": "#fff",
+    "borderStyle": "white",
+    "selectedColor": "#282828",
+    "color": "#747474",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "iconPath": "static/images/homeTab1.png",
+        "selectedIconPath": "static/images/homeTab2.png",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/classificationList/classificationList",
+        "iconPath": "static/images/classificationTab1.png",
+        "selectedIconPath": "static/images/classificationTab2.png",
+        "text": "分类"
+      },
+      {
+        "pagePath": "pages/newsMessage/newsMessage",
+        "iconPath": "static/images/messageIconTab1.png",
+        "selectedIconPath": "static/images/messageIconTab2.png",
+        "text": "消息"
+      },
+      {
+        "pagePath": "pages/lookInfoList/lookInfoList",
+        "iconPath": "static/images/lookInfoIconTab1.png",
+        "selectedIconPath": "static/images/lookInfoIconTab2.png",
+        "text": "看点"
+      },
+      {
+        "pagePath": "pages/myInfo/myInfo",
+        "iconPath": "static/images/myIconTab1.png",
+        "selectedIconPath": "static/images/myIconTab2.png",
+        "text": "我的"
+      }
+    ]
+  },
+  "networkTimeout": {
+    "request": 10000,
+    "connectSocket": 10000,
+    "uploadFile": 10000,
+    "downloadFile": 10000
+  },
+  "debug": true,
+  "usingComponents": {
+    "van-cell": "./lib/vant-weapp/cell/index",
+    "van-cell-group": "./lib/vant-weapp/cell-group/index",
+    "van-picker": "./lib/vant-weapp/picker/index",
+    "van-popup": "./lib/vant-weapp/popup/index",
+    "van-field": "./lib/vant-weapp/field/index",
+    "van-uploader": "./lib/vant-weapp/uploader/index",
+    "van-button": "./lib/vant-weapp/button/index",
+    "van-tag": "./lib/vant-weapp/tag/index",
+    "van-icon": "./lib/vant-weapp/icon/index",
+    "van-checkbox": "./lib/vant-weapp/checkbox/index",
+    "van-steps": "./lib/vant-weapp/steps/index",
+    "van-action-sheet": "./lib/vant-weapp/action-sheet/index",
+    "van-radio": "./lib/vant-weapp/radio/index",
+    "van-radio-group": "./lib/vant-weapp/radio-group/index",
+    "van-toast": "./lib/vant-weapp/toast/index",
+    "van-tab": "./lib/vant-weapp/tab/index",
+    "van-tabs": "./lib/vant-weapp/tabs/index",
+    "van-area": "./lib/vant-weapp/area/index",
+    "van-count-down": "./lib/vant-weapp/count-down/index",
+    "van-datetime-picker": "./lib/vant-weapp/datetime-picker/index"
+  },
+  "sitemapLocation": "sitemap.json",
+  "permission": {
+    "scope.userLocation": {
+      "desc": "获取位置信息用于选择写字楼"
+    }
+  }
+}

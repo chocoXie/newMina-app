@@ -1,0 +1,11 @@
+{
+  "navigationBarTitleText": "收藏",
+  "navigationStyle":"custom",
+  "enablePullDownRefresh": true,
+  "usingComponents": {
+    "public-title": "../../components/publicTitle/publicTitle",
+    "public-notdataList": "../../components/publicNotDataList/publicNotDataList",
+    "news-information": "../../components/newsInformation/newsInformation",
+    "news-video": "../../components/newsVideo/newsVideo"
+  }
+}

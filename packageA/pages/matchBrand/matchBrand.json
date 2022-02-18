@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "brand-components": "../../../components/brandComponents/brandComponents",
+    "public-title": "../../../components/publicTitle/publicTitle"
+  },
+  "navigationStyle":"custom"
+  
+}

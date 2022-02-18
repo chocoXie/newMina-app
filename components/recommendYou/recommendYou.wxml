@@ -1,0 +1,8 @@
+<view class="recommendBar">
+    <view class="title">为你推荐</view>
+    <ul>
+        <li wx:for="{{recommendData}}" wx:key="*this">
+            <brand-components source="搜索埋点" itemData="{{item}}"></brand-components>
+        </li>
+    </ul>
+</view>

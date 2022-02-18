@@ -1,0 +1,14 @@
+<view class="wrapper">
+    <view class="cntbox" wx:if="{{noticeData.length>0}}">
+        <view class="content" wx:for="{{noticeData}}" wx:key="index">
+            <view class="time">{{item.sendTime}}</view>
+            <view class="notice">
+                <view>系统公告</view>
+                <text>{{item.msgDetails}}</text>
+            </view>
+        </view>
+    </view>
+    <view wx:if="{{imgShow==2}}" class="noticeImg">
+        <image src="https://vine-static.kuaidao.cn/im/icon_tz@2x.png" />
+    </view>
+</view>

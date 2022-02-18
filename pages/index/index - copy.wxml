@@ -1,0 +1,160 @@
+<!-- index.wxml -->
+<view class="container">
+  <!-- 搜索框 -->
+  <title-search></title-search>
+  <!-- 轮播图 -->
+  <view class="banner" style="margin-top:{{heightTop+5}}px">
+    <!-- indicator-dots="true" -->
+    <swiper bindchange="monitorCurrent" class="bannerContent" current="{{current}}" autoplay="{{isAutoplay}}" interval="3000" duration="300">
+      <swiper-item wx:for="{{bannerList}}" wx:key="*this">
+        <block>
+          <image class="bannerImageUrl" bindtap="imgClick" data-value="{{item}}"  data-item="{{item}}" src="{{item.iconHref}}"></image>
+        </block>
+      </swiper-item>
+    </swiper>
+    <view class="dots">
+      <block wx:for="{{bannerList}}" wx:for-index="index" wx:key="*this">
+        <view class="{{current==index?'active':''}}" bindtap="dotsClick" data-index="{{index}}"></view>
+      </block>
+    </view>
+  </view>
+  <!-- 饮品甜品中西快餐 -->
+  <view class="drinksDesserts">
+    <ul>
+      <li wx:for="{{drinksDessertsList}}" wx:key="*this" data-name="{{item.name}}" bindtap="drinksDessertsClick">
+        <image src="{{item.url}}"></image>
+        <text>{{item.name}}</text>
+      </li>
+    </ul>
+  </view>
+  <!-- 平台保障 -->
+   <!-- <view class="platformSupport">
+    <image bindtap="imageClick" data-name="platformSupport" class="oneImage" src="http://huiju-new-prod.oss-cn-beijing.aliyuncs.com/weChat_images/platformSupport.png"></image>
+    <image bindtap="imageClick" data-name="brandEntry" src="http://huiju-new-prod.oss-cn-beijing.aliyuncs.com/weChat_images/brandMove.png"></image>
+  </view> -->
+  <view class="platformSupport">
+    <image bindtap="imageClick" data-name="topRanking" class="oneImage" src="../../static/weChat_images/topRanking.png"></image>
+    <vie class="platformSupportRight">
+      <image bindtap="imageClick" data-name="saveMoneyopen" src="../../static/weChat_images/saveMoneyopen.png"></image>
+      <image bindtap="imageClick" data-name="brandEntry" src="../../static/weChat_images/brandMove.png"></image>
+    </vie>
+  </view>
+  <!-- tab列表 -->
+  <view class="homeDataList {{isCeilingSuction?'fixtopHeight':''}}" >
+    <view  class="isCeilingSuctionOther {{isCeilingSuction?'isFixed':''}}" style="top:{{heightTop+4}}px">
+      <view bindtap="onChangeClick" data-id="0" class="{{active==0?'active vanTabClass':'vanTabClass'}}">
+        推荐
+      </view>
+      <view bindtap="onChangeClick" data-id="1" class="{{active==1?'active vanTabClass':'vanTabClass'}}">
+        低投入
+      </view>
+      <view bindtap="onChangeClick" data-id="2" class="{{active==2?'active vanTabClass':'vanTabClass'}}">
+        网红店
+      </view>
+    </view>
+    <home-lists dataLists="{{listData}}" nowTab="{{active}}"></home-lists>
+    <view style="text-align: center;margin:0rpx  0 20rpx 0;">
+      <view wx:if="{{loading}}">加载中...</view>
+      <view wx:if="{{noMore}}">已全部加载完毕</view>
+    </view>
+  </view>
+  <!--底部登录横条-->
+  <view class="homeBottomFixed" wx:if="{{showHomeBottom}}">
+    <text>终于等到你，快来登录吧～</text>
+    <view>
+      <button class="homeBottomFixedLogin">登录</button>
+      <image class="homeBottomFixedClose" src="../../static/images/homeBottomFixedClose.png" bindtap ="homeBottomFixedClose"/>
+    </view>
+    <button class="homeBottomFixedLoginBtn" data-type="32首页-横条登录" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNum"></button>
+  </view>
+  <!-- 客服展示 -->
+  <view class="customerService {{scrollTop?'customerServiceActive':''}}" wx:if="{{customerServiceIsShow}}">
+    <!-- <view class="customerService {{scrollTop?'customerServiceActive':''}}" wx:if="{{isShowService}}"> -->
+    <image wx:if="{{isShowOne}}" bindtap="openWeChat" src="http://huiju-new-prod.oss-cn-beijing.aliyuncs.com/weChat_images/customerService1.png" />
+    <image wx:else bindtap="openWeChat" src="http://huiju-new-prod.oss-cn-beijing.aliyuncs.com/weChat_images/customerService2.png" />
+    <image bindtap="closeService" src="../../static/images/removeServer.png" />
+    <button wx:if="{{!token}}" class="wx-auth-button" data-type="12首页-加盟顾问" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNum"></button>
+  </view>
+  <!-- 抽奖弹框 -->
+  <van-popup custom-class="luckDrawPop" z-index="{{999}}" show="{{ luckDrawPop }}" bindtouchstart="_touchstart" catchtouchmove="_touchmove" bindtouchend="_touchend">
+    <view class="luckDrawBar">
+      <view class="top">恭喜你获得{{luckDrawNum}}次抽奖机会</view>
+      <view class="WinningPrize">
+        <swiper circular="{{true}}" class="WinningPrizeSwiper" vertical="{{true}}" autoplay="{{true}}" interval="3000" duration="300">
+          <swiper-item class="swiperItem" wx:for="{{WinningPrize}}" wx:key="*this">
+            <view class="value">{{item}}</view>
+          </swiper-item>
+        </swiper>
+      </view>  
+      <view class="cen">
+        <image wx:if="{{token}}" class="{{item.id==selectTheLottery?'theLottery':''}}" bindtap="luckDrawClick" data-index="{{index}}" src="{{item.url}}" wx:for="{{luckDrawImage}}" wx:key="*this" />
+        <button wx:if="{{!token}}" style="background:transparent"  open-type="getPhoneNumber" data-type="1抽奖活动-点击立即抽奖" bindgetphonenumber="getPhoneNum">
+          <image class="{{item.id==selectTheLottery?'theLottery':''}}" data-index="{{index}}" src="{{item.url}}" wx:for="{{luckDrawImage}}" wx:key="*this" />
+        </button>
+        <!-- 0901以前代码 <image class="{{item.id==selectTheLottery?'theLottery':''}}" bindtap="luckDrawClick" data-index="{{index}}" src="{{item.url}}" wx:for="{{luckDrawImage}}" wx:key="*this" /> -->
+        <!-- <image animation="{{animation}}" bindtransitionend='animationend' class="theLottery" src="http://huiju-new-prod.oss-cn-beijing.aliyuncs.com/weChat_images/homeLuckDraw/theLottery.png" /> -->
+      </view>
+      <view class="bottom">
+        <view bindtap="activityRules">活动规则</view>
+        <image bindtap="activityRules" src="http://huiju-new-prod.oss-cn-beijing.aliyuncs.com/weChat_images/homeLuckDraw/rightArrow.png" />
+      </view>
+    </view>
+    <view class="closeActivity">
+      <image bindtap="closeActivity" src="http://huiju-new-prod.oss-cn-beijing.aliyuncs.com/weChat_images/homeLuckDraw/closeActivity.png" />
+    </view>
+  </van-popup>
+  <!-- 活动规则 activityRules -->
+  <van-popup z-index="{{999}}" show="{{ activityRules }}" bindtouchstart="_touchstart" catchtouchmove="_touchmove" bindtouchend="_touchend">
+    <view class="activityRulesBar">
+      <view class="top">活动规则</view>
+      <text class="cen" decode="{{true}}">
+        1、每人可免费获得2次抽奖机会。{{ '\n' }} 2、参加活动的用户年龄需满足17岁{{ '\n' }}&nbsp;&nbsp;&nbsp;&nbsp;以上，每人仅限领取一份。{{ '\n' }}3、用户中奖后官方客服将会致电核{{ '\n' }}&nbsp;&nbsp;&nbsp;&nbsp;实用户信息，进行奖品发放。{{ '\n' }}4、本活动最终解释权归官方所有。
+      </text>
+      <view class="bot" bindtap="myKnow">我知道了</view>
+    </view>
+  </van-popup>
+  <!-- 抽奖结果 -->
+  <van-popup z-index="{{999}}" show="{{ lotteryResults }}" bindtouchstart="_touchstart" catchtouchmove="_touchmove" bindtouchend="_touchend">
+    <view class="lotteryResultsBar">
+      <image bindtap="nowReceive" src="http://huiju-new-prod.oss-cn-beijing.aliyuncs.com/weChat_images/homeLuckDraw/nowLuckDraw.png" />
+    </view>
+    <view class="closeActivity">
+      <image bindtap="closeActivity" src="http://huiju-new-prod.oss-cn-beijing.aliyuncs.com/weChat_images/homeLuckDraw/closeActivity.png" />
+    </view>
+  </van-popup>
+  <!-- 抽奖一次之后关闭按钮 -->
+  <van-popup z-index="{{999}}" show="{{ aluckyDrawPop }}" bindtouchstart="_touchstart" catchtouchmove="_touchmove" bindtouchend="_touchend">
+    <view class="aluckyDrawPopBar">
+      <view class="remind">
+        <image src="http://huiju-new-prod.oss-cn-beijing.aliyuncs.com/weChat_images/homeLuckDraw/promptBell.png" />
+      </view>
+      <view class="contentBar">
+        <view class="top">不能半途而废</view>
+        <text class="cen">距离中奖只差最后一步{{ '\n' }}试一试百分百中奖~</text>
+        <view class="bot">
+          <view class="giveUp" bindtap="giveUpClick">放弃</view>
+          <view class="verticalLine"></view>
+          <view class="submit" bindtap="submitClick">确定</view>
+        </view>
+      </view>
+    </view>
+  </van-popup>
+  <!-- 抽奖按钮 -->
+  <view class="luckDrawGif" wx:if="{{luckDrawGifShow}}">
+    <image bindtap="showActivity" src="http://huiju-new-prod.oss-cn-beijing.aliyuncs.com/weChat_images/homeLuckDraw/luckDraw.gif" />
+  </view>
+  <!-- 一对一创业分析师服务 -->
+  <view class="analysisServices" wx:if="{{isShowAnalysisServices}}">
+    <view class="left">
+      <b>99元1对1</b>
+      创业分析师服务
+    </view>
+    <view class="cen" bindtap="nowReceive">去使用</view>
+    <view class="right" bindtap="closeAnalysisServices">
+      <image src="http://huiju-new-prod.oss-cn-beijing.aliyuncs.com/weChat_images/homeLuckDraw/closeluckDrawOne.png" />
+    </view>
+  </view>
+  <van-toast id="van-toast" />
+</view>
+
+
